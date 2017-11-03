@@ -80,7 +80,6 @@
     }
     else if (sender == _locationSwitch)
     {
-        
         if (![LBXPermission isServicesEnabledWithType:LBXPermissionType_Location])
         {
             //系统定位权限未开启
@@ -99,6 +98,7 @@
             _switch.on = granted;
             [self handCompletionWithGranted:granted firstTime:firstTime];
         }];
+      
     }
     else if (sender == _contactSwitch)
     {
