@@ -22,6 +22,7 @@
 		7721FEA71FAC60FA003F7C9F /* LBXPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FE9B1FAC60FA003F7C9F /* LBXPermission.m */; };
 		7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FEA91FAC6199003F7C9F /* PermissionTestViewController.m */; };
 		7721FEAC1FAC6199003F7C9F /* PermissionTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */; };
+		77DAED411FD9646F002B093D /* LBXPermissionNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DAED401FD9646F002B093D /* LBXPermissionNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		7721FEA81FAC6199003F7C9F /* PermissionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PermissionTestViewController.h; sourceTree = "<group>"; };
 		7721FEA91FAC6199003F7C9F /* PermissionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PermissionTestViewController.m; sourceTree = "<group>"; };
 		7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PermissionTestViewController.xib; sourceTree = "<group>"; };
+		77DAED3F1FD9646F002B093D /* LBXPermissionNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionNetwork.h; sourceTree = "<group>"; };
+		77DAED401FD9646F002B093D /* LBXPermissionNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				7721FE8D1FAC60FA003F7C9F /* LBXPermissionMicrophone.m */,
 				7721FE9D1FAC60FA003F7C9F /* LBXPermissionHealth.h */,
 				7721FE941FAC60FA003F7C9F /* LBXPermissionHealth.m */,
+				77DAED3F1FD9646F002B093D /* LBXPermissionNetwork.h */,
+				77DAED401FD9646F002B093D /* LBXPermissionNetwork.m */,
 			);
 			name = LBXPermissions;
 			path = ../LBXPermissions;
@@ -206,6 +211,7 @@
 				7721FEA61FAC60FA003F7C9F /* LBXPermissionCamera.m in Sources */,
 				7721FE781FAC60E1003F7C9F /* AppDelegate.m in Sources */,
 				7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */,
+				77DAED411FD9646F002B093D /* LBXPermissionNetwork.m in Sources */,
 				7721FE9F1FAC60FA003F7C9F /* LBXPermissionMicrophone.m in Sources */,
 				7721FEA01FAC60FA003F7C9F /* LBXPermissionCalendar.m in Sources */,
 			);
