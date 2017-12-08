@@ -8,6 +8,7 @@
 
 #import "PermissionTestViewController.h"
 #import "LBXPermission.h"
+#import "LBXPermissionSetting.h"
 
 @interface PermissionTestViewController ()
 @property (weak, nonatomic) IBOutlet UISwitch *photoSwitch;
@@ -152,7 +153,7 @@
     //没有权限，且不是第一次获取权限
     if ( !granted && !firstTime )
     {
-        [LBXPermission showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有 xxx 权限，是否前往设置" cancel:@"取消" setting:@"设置"];
+        [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有 xxx 权限，是否前往设置" cancel:@"取消" setting:@"设置"];
     }
     
     

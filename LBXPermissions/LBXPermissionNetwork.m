@@ -1,6 +1,6 @@
 //
 //  LBXPermissionNetwork.m
-//  Demo
+//  LBXKits
 //
 //  Created by lbx on 2017/12/7.
 //  Copyright © 2017年 lbx. All rights reserved.
@@ -10,6 +10,20 @@
 @import CoreTelephony;
 
 @implementation LBXPermissionNetwork
+
+
++ (BOOL)authorized
+{
+    if (@available(iOS 9,*))
+    {
+        CTCellularData *cellularData = [[CTCellularData alloc] init];
+        CTCellularDataRestrictedState status = cellularData.restrictedState;
+        
+        return status == kCTCellularDataNotRestricted;
+    }
+    
+    return YES;
+}
 
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion
 {
@@ -29,7 +43,6 @@
             {
                 //限制
                 completion(YES,NO);
-                
             }
                 break;
             case kCTCellularDataRestrictedStateUnknown:

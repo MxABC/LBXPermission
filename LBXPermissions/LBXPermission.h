@@ -18,7 +18,8 @@ typedef NS_ENUM(NSInteger,LBXPermissionType)
     LBXPermissionType_Reminders,
     LBXPermissionType_Calendar,
     LBXPermissionType_Microphone,
-    LBXPermissionType_Health
+    LBXPermissionType_Health,
+    LBXPermissionType_Network
 };
 
 @interface LBXPermission : NSObject
@@ -64,26 +65,7 @@ typedef NS_ENUM(NSInteger,LBXPermissionType)
 + (void)authorizeWithType:(LBXPermissionType)type completion:(void(^)(BOOL granted,BOOL firstTime))completion;
 
 
-#pragma mark- guide user to show App privacy setting
-/**
- show App privacy settings
- */
-+ (void)displayAppPrivacySettings;
 
-
-
-/**
- show dialog to guide user to show App privacy setting
-
- @param title title
- @param message privacy message
- @param cancel cancel button text
- @param setting setting button text,if user tap this button ,will show App privacy setting
- */
-+ (void)showAlertToDislayPrivacySettingWithTitle:(NSString*)title
-                                             msg:(NSString*)message
-                                          cancel:(NSString*)cancel
-                                              setting:(NSString*)setting;
 
 
 @end

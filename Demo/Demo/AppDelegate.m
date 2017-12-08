@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PermissionTestViewController.h"
+#import "LBXPermissionNetwork.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +24,11 @@
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[PermissionTestViewController alloc]init]];
     
     [self.window makeKeyAndVisible];
+    
+    [LBXPermissionNetwork authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
+        
+    }];
+    
     return YES;
 }
 

@@ -23,6 +23,7 @@
 		7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FEA91FAC6199003F7C9F /* PermissionTestViewController.m */; };
 		7721FEAC1FAC6199003F7C9F /* PermissionTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */; };
 		77DAED411FD9646F002B093D /* LBXPermissionNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DAED401FD9646F002B093D /* LBXPermissionNetwork.m */; };
+		77E0988E1FDA16F300559AC5 /* LBXPermissionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,8 @@
 		7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PermissionTestViewController.xib; sourceTree = "<group>"; };
 		77DAED3F1FD9646F002B093D /* LBXPermissionNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionNetwork.h; sourceTree = "<group>"; };
 		77DAED401FD9646F002B093D /* LBXPermissionNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionNetwork.m; sourceTree = "<group>"; };
+		77E0988C1FDA16F300559AC5 /* LBXPermissionSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionSetting.h; sourceTree = "<group>"; };
+		77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionSetting.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 			children = (
 				7721FE901FAC60FA003F7C9F /* LBXPermission.h */,
 				7721FE9B1FAC60FA003F7C9F /* LBXPermission.m */,
+				77E0988C1FDA16F300559AC5 /* LBXPermissionSetting.h */,
+				77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */,
 				7721FE9C1FAC60FA003F7C9F /* LBXPermissionPhotos.h */,
 				7721FE951FAC60FA003F7C9F /* LBXPermissionPhotos.m */,
 				7721FE911FAC60FA003F7C9F /* LBXPermissionCamera.h */,
@@ -207,6 +212,7 @@
 				7721FEA21FAC60FA003F7C9F /* LBXPermissionHealth.m in Sources */,
 				7721FE861FAC60E2003F7C9F /* main.m in Sources */,
 				7721FEA31FAC60FA003F7C9F /* LBXPermissionPhotos.m in Sources */,
+				77E0988E1FDA16F300559AC5 /* LBXPermissionSetting.m in Sources */,
 				7721FEA51FAC60FA003F7C9F /* LBXPermissionContacts.m in Sources */,
 				7721FEA61FAC60FA003F7C9F /* LBXPermissionCamera.m in Sources */,
 				7721FE781FAC60E1003F7C9F /* AppDelegate.m in Sources */,

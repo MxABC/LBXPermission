@@ -41,7 +41,6 @@
                 break;
             case AVAudioSessionRecordPermissionUndetermined:
             {
-                
                 AVAudioSession *session = [[AVAudioSession alloc] init];
                 NSError *error;
                 [session setCategory:@"AVAudioSessionCategoryPlayAndRecord" error:&error];
@@ -60,6 +59,10 @@
             }
                 break;
         }
+    }
+    else
+    {
+        completion(YES, NO);
     }
 }
 

@@ -1,6 +1,6 @@
 //
 //  LBXPermissionNetwork.h
-//  Demo
+//  LBXKits
 //
 //  Created by lbx on 2017/12/7.
 //  Copyright © 2017年 lbx. All rights reserved.
@@ -10,7 +10,8 @@
 
 @interface LBXPermissionNetwork : NSObject
 
-+ (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion;
++ (BOOL)authorized;
 
++ (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion;
 
 @end
