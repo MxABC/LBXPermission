@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger,LBXPermissionType)
     LBXPermissionType_Calendar,
     LBXPermissionType_Microphone,
     LBXPermissionType_Health,
-    LBXPermissionType_Network
+    LBXPermissionType_DataNetwork//
 };
 
 @interface LBXPermission : NSObject

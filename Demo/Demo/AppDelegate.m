@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "PermissionTestViewController.h"
-#import "LBXPermissionNetwork.h"
+#import "LBXPermissionData.h"
 
 @interface AppDelegate ()
 
@@ -25,8 +25,9 @@
     
     [self.window makeKeyAndVisible];
     
-    [LBXPermissionNetwork authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
+    [LBXPermissionData authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
         
+        NSLog(@"data network granted:%d",granted);
     }];
     
     return YES;

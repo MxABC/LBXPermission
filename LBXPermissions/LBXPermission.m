@@ -17,7 +17,7 @@
 #import "LBXPermissionCalendar.h"
 #import "LBXPermissionReminders.h"
 #import "LBXPermissionMicrophone.h"
-#import "LBXPermissionNetwork.h"
+#import "LBXPermissionData.h"
 
 @implementation LBXPermission
 
@@ -68,8 +68,7 @@
         case LBXPermissionType_Health:
             return [LBXPermissionHealth authorized];
             break;
-        case LBXPermissionType_Network:
-            return [LBXPermissionNetwork authorized];
+        case LBXPermissionType_DataNetwork:
             break;
         default:
             break;
@@ -104,8 +103,8 @@
         case LBXPermissionType_Health:
             return [LBXPermissionHealth authorizeWithCompletion:completion];
             break;
-        case LBXPermissionType_Network:
-            return [LBXPermissionNetwork authorizeWithCompletion:completion];
+        case LBXPermissionType_DataNetwork:
+            return [LBXPermissionData authorizeWithCompletion:completion];
             break;
             
         default:

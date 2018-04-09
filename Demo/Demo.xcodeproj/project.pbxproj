@@ -22,7 +22,7 @@
 		7721FEA71FAC60FA003F7C9F /* LBXPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FE9B1FAC60FA003F7C9F /* LBXPermission.m */; };
 		7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FEA91FAC6199003F7C9F /* PermissionTestViewController.m */; };
 		7721FEAC1FAC6199003F7C9F /* PermissionTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */; };
-		77DAED411FD9646F002B093D /* LBXPermissionNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DAED401FD9646F002B093D /* LBXPermissionNetwork.m */; };
+		77DAED411FD9646F002B093D /* LBXPermissionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DAED401FD9646F002B093D /* LBXPermissionData.m */; };
 		77E0988E1FDA16F300559AC5 /* LBXPermissionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +55,8 @@
 		7721FEA81FAC6199003F7C9F /* PermissionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PermissionTestViewController.h; sourceTree = "<group>"; };
 		7721FEA91FAC6199003F7C9F /* PermissionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PermissionTestViewController.m; sourceTree = "<group>"; };
 		7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PermissionTestViewController.xib; sourceTree = "<group>"; };
-		77DAED3F1FD9646F002B093D /* LBXPermissionNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionNetwork.h; sourceTree = "<group>"; };
-		77DAED401FD9646F002B093D /* LBXPermissionNetwork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionNetwork.m; sourceTree = "<group>"; };
+		77DAED3F1FD9646F002B093D /* LBXPermissionData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionData.h; sourceTree = "<group>"; };
+		77DAED401FD9646F002B093D /* LBXPermissionData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionData.m; sourceTree = "<group>"; };
 		77E0988C1FDA16F300559AC5 /* LBXPermissionSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionSetting.h; sourceTree = "<group>"; };
 		77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionSetting.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,8 +128,8 @@
 				7721FE8D1FAC60FA003F7C9F /* LBXPermissionMicrophone.m */,
 				7721FE9D1FAC60FA003F7C9F /* LBXPermissionHealth.h */,
 				7721FE941FAC60FA003F7C9F /* LBXPermissionHealth.m */,
-				77DAED3F1FD9646F002B093D /* LBXPermissionNetwork.h */,
-				77DAED401FD9646F002B093D /* LBXPermissionNetwork.m */,
+				77DAED3F1FD9646F002B093D /* LBXPermissionData.h */,
+				77DAED401FD9646F002B093D /* LBXPermissionData.m */,
 			);
 			name = LBXPermissions;
 			path = ../LBXPermissions;
@@ -217,7 +217,7 @@
 				7721FEA61FAC60FA003F7C9F /* LBXPermissionCamera.m in Sources */,
 				7721FE781FAC60E1003F7C9F /* AppDelegate.m in Sources */,
 				7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */,
-				77DAED411FD9646F002B093D /* LBXPermissionNetwork.m in Sources */,
+				77DAED411FD9646F002B093D /* LBXPermissionData.m in Sources */,
 				7721FE9F1FAC60FA003F7C9F /* LBXPermissionMicrophone.m in Sources */,
 				7721FEA01FAC60FA003F7C9F /* LBXPermissionCalendar.m in Sources */,
 			);
@@ -350,10 +350,10 @@
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lbx.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunqueyi.Doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3d5eafd1-84f6-4548-a78e-8f19302038b3";
-				PROVISIONING_PROFILE_SPECIFIER = dev_pro;
+				PROVISIONING_PROFILE = "569c608b-19b6-455f-aa79-0bbcc523d3d3";
+				PROVISIONING_PROFILE_SPECIFIER = app_dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -367,7 +367,7 @@
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lbx.test;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunqueyi.Doctor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
