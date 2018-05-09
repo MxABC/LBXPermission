@@ -15,17 +15,20 @@
 
 + (void)displayAppPrivacySettings
 {
-    if (UIApplicationOpenSettingsURLString != NULL)
+    if (@available(iOS 8,*))
     {
-        NSURL *appSettings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-        
-        if (@available(iOS 10,*)) {
-            [[UIApplication sharedApplication]openURL:appSettings options:@{} completionHandler:^(BOOL success) {
-            }];
-        }
-        else
+        if (UIApplicationOpenSettingsURLString != NULL)
         {
-            [[UIApplication sharedApplication]openURL:appSettings];
+            NSURL *appSettings = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+            
+            if (@available(iOS 10,*)) {
+                [[UIApplication sharedApplication]openURL:appSettings options:@{} completionHandler:^(BOOL success) {
+                }];
+            }
+            else
+            {
+                [[UIApplication sharedApplication]openURL:appSettings];
+            }
         }
     }
 }
