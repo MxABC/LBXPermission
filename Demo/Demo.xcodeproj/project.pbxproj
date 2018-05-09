@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73B8086E20A2E1F100D9C96A /* LBXPermission.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 73B8086D20A2E1F100D9C96A /* LBXPermission.podspec */; };
 		7721FE781FAC60E1003F7C9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FE771FAC60E1003F7C9F /* AppDelegate.m */; };
 		7721FE801FAC60E1003F7C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7721FE7F1FAC60E1003F7C9F /* Assets.xcassets */; };
 		7721FE831FAC60E1003F7C9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7721FE811FAC60E1003F7C9F /* LaunchScreen.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73B8086D20A2E1F100D9C96A /* LBXPermission.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LBXPermission.podspec; path = ../LBXPermission.podspec; sourceTree = "<group>"; };
 		7721FE731FAC60E1003F7C9F /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7721FE761FAC60E1003F7C9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7721FE771FAC60E1003F7C9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		7721FE6A1FAC60E1003F7C9F = {
 			isa = PBXGroup;
 			children = (
+				73B8086D20A2E1F100D9C96A /* LBXPermission.podspec */,
 				7721FE8C1FAC60FA003F7C9F /* LBXPermissions */,
 				7721FE751FAC60E1003F7C9F /* Demo */,
 				7721FE741FAC60E1003F7C9F /* Products */,
@@ -193,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73B8086E20A2E1F100D9C96A /* LBXPermission.podspec in Resources */,
 				7721FE831FAC60E1003F7C9F /* LaunchScreen.storyboard in Resources */,
 				7721FEAC1FAC6199003F7C9F /* PermissionTestViewController.xib in Resources */,
 				7721FE801FAC60E1003F7C9F /* Assets.xcassets in Resources */,
