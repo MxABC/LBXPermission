@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <HealthKit/HealthKit.h>
+
 
 @interface LBXPermissionHealth : NSObject
 
@@ -23,7 +23,7 @@
  */
 + (BOOL)isHealthDataAvailable;
 
-+ (HKAuthorizationStatus)authorizationStatus;
++ (NSInteger)authorizationStatus;
 
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion;
 

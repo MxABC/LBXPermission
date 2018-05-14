@@ -35,8 +35,17 @@
 + (BOOL)authorized
 {
     CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
-
-    return authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse;
+    
+    if (@available(iOS 8,*)) {
+        
+        return (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse);
+    }
+    else if(@available(iOS 2,*))
+    {
+        return authorizationStatus == kCLAuthorizationStatusAuthorized;
+    }
+   
+    return NO;
 }
 
 + (CLAuthorizationStatus)authorizationStatus;
@@ -44,13 +53,13 @@
     return  [CLLocationManager authorizationStatus];
 }
 
-
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion;
 {
     CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
     switch (authorizationStatus) {
-        case kCLAuthorizationStatusAuthorizedAlways:
-        case kCLAuthorizationStatusAuthorizedWhenInUse: {
+        case kCLAuthorizationStatusAuthorizedAlways://kCLAuthorizationStatusAuthorized both equal 3
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+        {
             if (completion) {
                 completion(YES,NO);
             }
@@ -88,26 +97,28 @@
     _locationManager.delegate = self;
     _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 &&
-        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
-        BOOL hasAlwaysKey = [[NSBundle mainBundle]
-                             objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"] != nil;
-        BOOL hasWhenInUseKey =
-        [[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"] !=
-        nil;
-        if (hasAlwaysKey) {
-            [_locationManager requestAlwaysAuthorization];
-        } else if (hasWhenInUseKey) {
-            [_locationManager requestWhenInUseAuthorization];
-        } else {
-            // At least one of the keys NSLocationAlwaysUsageDescription or
-            // NSLocationWhenInUseUsageDescription MUST be present in the Info.plist
-            // file to use location services on iOS 8+.
-            NSAssert(hasAlwaysKey || hasWhenInUseKey,
-                     @"To use location services in iOS 8+, your Info.plist must "
-                     @"provide a value for either "
-                     @"NSLocationWhenInUseUsageDescription or "
-                     @"NSLocationAlwaysUsageDescription.");
+    if (@available(iOS 8,*)) {
+        
+        if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
+            BOOL hasAlwaysKey = [[NSBundle mainBundle]
+                                 objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"] != nil;
+            BOOL hasWhenInUseKey =
+            [[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"] !=
+            nil;
+            if (hasAlwaysKey) {
+                [_locationManager requestAlwaysAuthorization];
+            } else if (hasWhenInUseKey) {
+                [_locationManager requestWhenInUseAuthorization];
+            } else {
+                // At least one of the keys NSLocationAlwaysUsageDescription or
+                // NSLocationWhenInUseUsageDescription MUST be present in the Info.plist
+                // file to use location services on iOS 8+.
+                NSAssert(hasAlwaysKey || hasWhenInUseKey,
+                         @"To use location services in iOS 8+, your Info.plist must "
+                         @"provide a value for either "
+                         @"NSLocationWhenInUseUsageDescription or "
+                         @"NSLocationAlwaysUsageDescription.");
+            }
         }
     }
     [self.locationManager startUpdatingLocation];

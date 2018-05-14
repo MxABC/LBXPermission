@@ -13,7 +13,16 @@
 
 + (BOOL)authorized;
 
-+ (AVAudioSessionRecordPermission)authorizationStatus;
+/**
+ permission status
+ 
+ 0 ：AVAudioSessionRecordPermissionUndetermined
+ 1 ：AVAudioSessionRecordPermissionDenied
+ 2 ：AVAudioSessionRecordPermissionGranted
+ 
+ @return status
+ */
++ (NSInteger)authorizationStatus;
 
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion;
 

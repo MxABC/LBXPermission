@@ -7,18 +7,37 @@
 //
 
 #import "LBXPermissionPhotos.h"
-
+#import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <Photos/Photos.h>
 
 @implementation LBXPermissionPhotos
 
 + (BOOL)authorized
 {
-    return [self authorizationStatus] == PHAuthorizationStatusAuthorized;
+    return [self authorizationStatus] == 3;
 }
 
-+ (PHAuthorizationStatus)authorizationStatus
+
+/**
+ photo permission status
+
+ @return
+ 0 :NotDetermined
+ 1 :Restricted
+ 2 :Denied
+ 3 :Authorized
+ */
++ (NSInteger)authorizationStatus
 {
-    return  [PHPhotoLibrary authorizationStatus];
+    if (@available(iOS 8,*))
+    {
+        return  [PHPhotoLibrary authorizationStatus];
+    }
+    else
+    {
+        return  [ALAssetsLibrary authorizationStatus];
+    }
 }
 
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion

@@ -55,6 +55,7 @@
             });
         };
         
+        //不存储，对象cellularData会销毁
         [LBXPermissionData sharedManager].cellularData = cellularData;
     }
     else
