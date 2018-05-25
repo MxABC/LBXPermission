@@ -7,7 +7,7 @@ iOS常用权限获取
 ### install by cocoapods
 
 ```
-   pod 'LBXPermission', '~> 1.0.1'
+   pod 'LBXPermission', '~> 1.0.2'
 ```
 
 ### install manually
