@@ -12,7 +12,7 @@
 @interface LBXPermissionData : NSObject
 
 /**
- suggest call this method delay a few seconds after app launch
+ 判断网络权限是否有限制
  remark: just call back data networks permission
  @param completion 回调
  */

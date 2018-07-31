@@ -12,6 +12,7 @@
 @interface LBXPermissionData()
 
 @property (nonatomic, strong) id cellularData;
+@property (nonatomic, copy) void (^completion)(BOOL granted,BOOL firstTime);
 @end
 
 @implementation LBXPermissionData
@@ -33,30 +34,36 @@
 {
     if (@available(iOS 10,*)) {
         
-        CTCellularData *cellularData = [[CTCellularData alloc] init];
+        [LBXPermissionData sharedManager].completion = completion;
         
-        cellularData.cellularDataRestrictionDidUpdateNotifier = ^(CTCellularDataRestrictedState state)
-        {
-//            NSLog(@"state:%ld",state);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (state == kCTCellularDataNotRestricted) {
-                    //没有限制
-                    completion(YES,NO);
-                }
-                else if (state == kCTCellularDataRestrictedStateUnknown)
-                {
-                    //没有请求网络或正在等待用户确认权限
-//                    completion(NO,NO);
-                }
-                else{
-                    //
-                    completion(NO,NO);
-                }
-            });
-        };
-        
-        //不存储，对象cellularData会销毁
-        [LBXPermissionData sharedManager].cellularData = cellularData;
+        if (![LBXPermissionData sharedManager].cellularData) {
+            
+            CTCellularData *cellularData = [[CTCellularData alloc] init];
+            
+            cellularData.cellularDataRestrictionDidUpdateNotifier = ^(CTCellularDataRestrictedState state)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (state == kCTCellularDataNotRestricted) {
+                        //没有限制
+                        [LBXPermissionData sharedManager].completion(YES,NO);
+                        NSLog(@"有网络权限");
+                    }
+                    else if (state == kCTCellularDataRestrictedStateUnknown)
+                    {
+                        //                    completion(NO,NO);
+                        NSLog(@"没有请求网络或正在等待用户确认权限?");
+                    }
+                    else{
+                        //
+                        [LBXPermissionData sharedManager].completion(NO,NO);
+                        NSLog(@"无网络权限");
+                    }
+                });
+            };
+            
+            //不存储，对象cellularData会销毁
+            [LBXPermissionData sharedManager].cellularData = cellularData;
+        }
     }
     else
     {
