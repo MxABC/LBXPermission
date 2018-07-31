@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,6 +18,8 @@
                 <outlet property="healthSwitch" destination="CPr-52-LTV" id="j2f-jw-vGe"/>
                 <outlet property="labelHealthTip" destination="fpj-Xm-lBJ" id="EmZ-BP-5Ip"/>
                 <outlet property="labelLocationService" destination="w3i-Eo-g9C" id="vm9-xw-CLd"/>
+                <outlet property="labelNetPermission" destination="4BO-cN-6QV" id="lHx-Kk-Nf3"/>
+                <outlet property="labelNetStatus" destination="l7d-oH-4z8" id="Y76-y7-bLq"/>
                 <outlet property="locationSwitch" destination="b1B-Xs-Arl" id="zDo-wB-8wc"/>
                 <outlet property="photoSwitch" destination="EeT-4B-eU7" id="Anf-60-CsY"/>
                 <outlet property="reminderSwitch" destination="DzU-WM-OB6" id="uLa-to-VDT"/>
@@ -113,6 +115,18 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络状态:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7d-oH-4z8">
+                    <rect key="frame" x="20" y="416" width="66" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络权限：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BO-cN-6QV">
+                    <rect key="frame" x="184" y="416" width="77" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -121,7 +135,9 @@
                 <constraint firstItem="giQ-sX-NBg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="41" id="9d8-MZ-Ul2"/>
                 <constraint firstItem="CPr-52-LTV" firstAttribute="top" secondItem="Xal-k8-A6F" secondAttribute="bottom" constant="17" id="A49-eD-hzV"/>
                 <constraint firstItem="w3i-Eo-g9C" firstAttribute="leading" secondItem="b1B-Xs-Arl" secondAttribute="trailing" constant="20" id="D8C-zo-kGG"/>
+                <constraint firstItem="l7d-oH-4z8" firstAttribute="top" secondItem="RlD-KF-HqF" secondAttribute="bottom" constant="26" id="DCF-cN-YNq"/>
                 <constraint firstItem="E55-DG-zj1" firstAttribute="top" secondItem="f8j-dJ-ue8" secondAttribute="bottom" constant="24" id="EAh-hJ-1o1"/>
+                <constraint firstItem="4BO-cN-6QV" firstAttribute="centerY" secondItem="l7d-oH-4z8" secondAttribute="centerY" id="FHS-jo-V8m"/>
                 <constraint firstItem="PMC-ay-bnZ" firstAttribute="top" secondItem="EeT-4B-eU7" secondAttribute="bottom" constant="17" id="FLy-rU-0nt"/>
                 <constraint firstItem="YhE-Ki-GSZ" firstAttribute="leading" secondItem="uOC-qr-t0T" secondAttribute="trailing" constant="37" id="Hpl-B5-T1g"/>
                 <constraint firstItem="E55-DG-zj1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="28" id="Iy7-dZ-hOl"/>
@@ -131,6 +147,7 @@
                 <constraint firstItem="RlD-KF-HqF" firstAttribute="top" secondItem="giQ-sX-NBg" secondAttribute="bottom" constant="26" id="T0O-jZ-JWV"/>
                 <constraint firstItem="Xal-k8-A6F" firstAttribute="leading" secondItem="iLw-r6-oAQ" secondAttribute="trailing" constant="36" id="Vrn-7r-xmR"/>
                 <constraint firstItem="fpj-Xm-lBJ" firstAttribute="leading" secondItem="CPr-52-LTV" secondAttribute="trailing" constant="10" id="Z5w-2C-JO9"/>
+                <constraint firstItem="l7d-oH-4z8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aPN-HD-RzL"/>
                 <constraint firstItem="b1B-Xs-Arl" firstAttribute="leading" secondItem="E55-DG-zj1" secondAttribute="trailing" constant="37" id="aRp-1Q-Iky"/>
                 <constraint firstItem="AiV-j1-OUY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="aSY-qy-dUq"/>
                 <constraint firstItem="CPr-52-LTV" firstAttribute="leading" secondItem="giQ-sX-NBg" secondAttribute="trailing" constant="36" id="awU-8K-7Wy"/>
@@ -138,6 +155,7 @@
                 <constraint firstItem="PMC-ay-bnZ" firstAttribute="leading" secondItem="f8j-dJ-ue8" secondAttribute="trailing" constant="35" id="eLP-dE-cM3"/>
                 <constraint firstItem="uOC-qr-t0T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="fcu-tx-jHa"/>
                 <constraint firstItem="tt9-rx-VdV" firstAttribute="leading" secondItem="RlD-KF-HqF" secondAttribute="trailing" constant="37" id="gSM-jr-Leu"/>
+                <constraint firstItem="4BO-cN-6QV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="184" id="kSb-gV-9HR"/>
                 <constraint firstItem="lzE-Ev-Lsi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="mgH-DX-SDJ"/>
                 <constraint firstItem="iLw-r6-oAQ" firstAttribute="top" secondItem="lzE-Ev-Lsi" secondAttribute="bottom" constant="30" id="nvx-MJ-Vc4"/>
                 <constraint firstItem="f8j-dJ-ue8" firstAttribute="top" secondItem="AiV-j1-OUY" secondAttribute="bottom" constant="27" id="s4p-01-6xY"/>
@@ -153,7 +171,7 @@
                 <constraint firstItem="RlD-KF-HqF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="1" id="zZn-dB-ehk"/>
                 <constraint firstItem="tt9-rx-VdV" firstAttribute="top" secondItem="CPr-52-LTV" secondAttribute="bottom" constant="16" id="zwS-Tw-gVt"/>
             </constraints>
-            <point key="canvasLocation" x="-633" y="13"/>
+            <point key="canvasLocation" x="-657" y="17"/>
         </view>
     </objects>
 </document>

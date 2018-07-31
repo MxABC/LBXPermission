@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73510E9F210FF4250034470E /* NetReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 73510E9E210FF4250034470E /* NetReachability.m */; };
+		73510EA221103DEC0034470E /* LBXPermissionNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 73510EA121103DEC0034470E /* LBXPermissionNet.m */; };
 		73B8086E20A2E1F100D9C96A /* LBXPermission.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 73B8086D20A2E1F100D9C96A /* LBXPermission.podspec */; };
 		7721FE781FAC60E1003F7C9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FE771FAC60E1003F7C9F /* AppDelegate.m */; };
 		7721FE801FAC60E1003F7C9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7721FE7F1FAC60E1003F7C9F /* Assets.xcassets */; };
@@ -28,6 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73510E9D210FF4250034470E /* NetReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetReachability.h; sourceTree = "<group>"; };
+		73510E9E210FF4250034470E /* NetReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetReachability.m; sourceTree = "<group>"; };
+		73510EA021103DEC0034470E /* LBXPermissionNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionNet.h; sourceTree = "<group>"; };
+		73510EA121103DEC0034470E /* LBXPermissionNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionNet.m; sourceTree = "<group>"; };
 		73B8086D20A2E1F100D9C96A /* LBXPermission.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LBXPermission.podspec; path = ../LBXPermission.podspec; sourceTree = "<group>"; };
 		7721FE731FAC60E1003F7C9F /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7721FE761FAC60E1003F7C9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -131,6 +137,10 @@
 				7721FE8D1FAC60FA003F7C9F /* LBXPermissionMicrophone.m */,
 				7721FE9D1FAC60FA003F7C9F /* LBXPermissionHealth.h */,
 				7721FE941FAC60FA003F7C9F /* LBXPermissionHealth.m */,
+				73510E9D210FF4250034470E /* NetReachability.h */,
+				73510E9E210FF4250034470E /* NetReachability.m */,
+				73510EA021103DEC0034470E /* LBXPermissionNet.h */,
+				73510EA121103DEC0034470E /* LBXPermissionNet.m */,
 				77DAED3F1FD9646F002B093D /* LBXPermissionData.h */,
 				77DAED401FD9646F002B093D /* LBXPermissionData.m */,
 			);
@@ -169,7 +179,7 @@
 				TargetAttributes = {
 					7721FE721FAC60E1003F7C9F = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -214,10 +224,12 @@
 				7721FEA41FAC60FA003F7C9F /* LBXPermissionLocation.m in Sources */,
 				7721FEA11FAC60FA003F7C9F /* LBXPermissionReminders.m in Sources */,
 				7721FEA21FAC60FA003F7C9F /* LBXPermissionHealth.m in Sources */,
+				73510E9F210FF4250034470E /* NetReachability.m in Sources */,
 				7721FE861FAC60E2003F7C9F /* main.m in Sources */,
 				7721FEA31FAC60FA003F7C9F /* LBXPermissionPhotos.m in Sources */,
 				77E0988E1FDA16F300559AC5 /* LBXPermissionSetting.m in Sources */,
 				7721FEA51FAC60FA003F7C9F /* LBXPermissionContacts.m in Sources */,
+				73510EA221103DEC0034470E /* LBXPermissionNet.m in Sources */,
 				7721FEA61FAC60FA003F7C9F /* LBXPermissionCamera.m in Sources */,
 				7721FE781FAC60E1003F7C9F /* AppDelegate.m in Sources */,
 				7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */,
@@ -349,15 +361,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = KKT5X966GB;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8LQ7CL73D8;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yunqueyi.Doctor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lbx.test2018;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "569c608b-19b6-455f-aa79-0bbcc523d3d3";
-				PROVISIONING_PROFILE_SPECIFIER = app_dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -366,12 +379,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8LQ7CL73D8;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yunqueyi.Doctor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lbx.test2018;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

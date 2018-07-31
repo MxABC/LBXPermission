@@ -9,6 +9,7 @@
 #import "PermissionTestViewController.h"
 #import "LBXPermission.h"
 #import "LBXPermissionSetting.h"
+#import "LBXPermissionNet.h"
 
 @interface PermissionTestViewController ()
 @property (weak, nonatomic) IBOutlet UISwitch *photoSwitch;
@@ -25,6 +26,12 @@
 
 //定位提示
 @property (weak, nonatomic) IBOutlet UILabel *labelLocationService;
+
+//网络状态
+@property (weak, nonatomic) IBOutlet UILabel *labelNetStatus;
+//网络权限
+@property (weak, nonatomic) IBOutlet UILabel *labelNetPermission;
+
 
 
 @end
@@ -49,10 +56,11 @@
     [self addAllTargets];
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addAllTargets) name:@"refresh" object:nil];
- 
+    
+    
+    [self netPermissionlisten];
+  
 }
-
-
 
 - (void)swithValueChange:(id)sender
 {
@@ -218,5 +226,56 @@
     _healthSwitch.enabled = !_healthSwitch.on;
     _audioSwitch.enabled = !_audioSwitch.on;
 }
+
+#pragma mark- 网络权限设置
+- (void)netPermissionlisten
+{
+    __weak __typeof(self) weakSelf = self;
+    
+    NSString *hostName = @"www.baidu.com";//or @"202.108.22.5"
+    [[LBXPermissionNet sharedManager]startListenNetWithHostName:hostName onNetStatus:^(NetReachWorkStatus netStatus) {
+        
+        NSLog(@"netstatus:%ld",netStatus);
+        NSString *strNetStatus = @"";
+        switch (netStatus) {
+            case NetReachWorkNotReachable:
+                NSLog(@"网络不可用");
+                strNetStatus = @"网络不可用";
+                break;
+            case NetReachWorkStatusUnknown:
+                NSLog(@"未知网络");
+                strNetStatus = @"未知网络";
+                break;
+            case NetReachWorkStatusWWAN2G:
+                NSLog(@"2G网络");
+                strNetStatus = @"2G网络";
+                break;
+            case NetReachWorkStatusWWAN3G:
+                strNetStatus = @"3G网络";
+                break;
+            case NetReachWorkStatusWWAN4G:
+                NSLog(@"4G网络");
+                strNetStatus = @"4G网络";
+                break;
+            case NetReachWorkStatusWiFi:
+                NSLog(@"WiFi");
+                strNetStatus = @"WiFi";
+                break;
+            default:
+                break;
+        }
+        
+        __strong __typeof(self) strongSelf = weakSelf;
+        if (strongSelf) {
+            strongSelf.labelNetStatus.text = strNetStatus;
+        }
+        
+    } onNetPermission:^(BOOL granted) {
+        
+        __strong __typeof(self) strongSelf = weakSelf;
+        strongSelf.labelNetPermission.text = granted ? @"有网络权限" : @"可能没有网络权限";
+    }];
+}
+
 
 @end

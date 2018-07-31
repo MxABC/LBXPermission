@@ -33,7 +33,36 @@
     }
 }
 
-+ (void)showAlertToDislayPrivacySettingWithTitle:(NSString*)title msg:(NSString*)message cancel:(NSString*)cancel setting:(NSString *)setting
+/**
+ show dialog to guide user to show App privacy setting
+ 
+ @param title title
+ @param message privacy message
+ @param cancel cancel button text
+ @param setting setting button text,if user tap this button ,will show App privacy setting
+ */
++ (void)showAlertToDislayPrivacySettingWithTitle:(NSString*)title
+                                             msg:(NSString*)message
+                                          cancel:(NSString*)cancel
+                                         setting:(NSString*)setting
+{
+    [self showAlertToDislayPrivacySettingWithTitle:title msg:message cancel:cancel setting:setting completion:nil];
+}
+
+/**
+ show dialog to guide user to show App privacy setting
+ 
+ @param title title
+ @param message privacy message
+ @param cancel cancel button text
+ @param setting setting button text,if user tap this button ,will show App privacy setting
+ @param completion user has been choosed
+ */
++ (void)showAlertToDislayPrivacySettingWithTitle:(NSString*)title
+                                             msg:(NSString*)message
+                                          cancel:(NSString*)cancel
+                                         setting:(NSString*)setting
+                                      completion:(void(^)(void))completion
 {
     if (@available(iOS 8,*)) {
         
@@ -41,11 +70,18 @@
         
         //cancel
         UIAlertAction *action = [UIAlertAction actionWithTitle:cancel style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            if (completion) {
+                completion();
+            }
         }];
         [alertController addAction:action];
-        
+                
         //ok
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:setting style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            if (completion) {
+                completion();
+            }
             
             [self displayAppPrivacySettings];
         }];

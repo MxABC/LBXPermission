@@ -25,10 +25,10 @@
     
     [self.window makeKeyAndVisible];
     
-    [LBXPermissionData authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
-        
-        NSLog(@"data network granted:%d",granted);
-    }];
+//    [LBXPermissionData authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
+//        
+//        NSLog(@"data network granted:%d",granted);
+//    }];
     
     return YES;
 }
