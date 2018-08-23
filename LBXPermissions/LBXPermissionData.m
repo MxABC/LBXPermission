@@ -7,7 +7,7 @@
 //
 
 #import "LBXPermissionData.h"
-@import CoreTelephony;
+#import <CoreTelephony/CTCellularData.h>
 
 @interface LBXPermissionData()
 
