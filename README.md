@@ -9,7 +9,7 @@ iOS常用权限获取
 调用接口简单，易用,如下面相机和定位权限判断及获取
 
 ```
-//相机
+//相机权限获取，已经有权限了，仍然可通过该接口返回状态
     [LBXPermission authorizeWithType:LBXPermissionType_Camera completion:^(BOOL granted, BOOL firstTime) {
      
         if (granted) {
