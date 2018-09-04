@@ -42,7 +42,17 @@ iOS常用权限获取
 ### install by cocoapods
 
 ```
-   pod 'LBXPermission', '~> 1.0.3'
+   pod 'LBXPermission/Base'
+   pod 'LBXPermission/Camera'
+   pod 'LBXPermission/Photo'
+   pod 'LBXPermission/Contact'
+   pod 'LBXPermission/Location'
+   pod 'LBXPermission/Location'
+   pod 'LBXPermission/Reminder'
+   pod 'LBXPermission/Calendar'
+   pod 'LBXPermission/Microphone'
+   pod 'LBXPermission/Health'
+   pod 'LBXPermission/Net'
 ```
 
 ### install manually
