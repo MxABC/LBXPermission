@@ -23,35 +23,35 @@ s.subspec 'Camera' do |camera|
 end
 
 s.subspec 'Photo' do |photo|
-    photo.source_files = 'LBXPermissions/LBXPermissionPhotos.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    photo.source_files = 'LBXPermissions/LBXPermissionPhotos.{h,m}'
 end
 
 s.subspec 'Contact' do |contact|
-    contact.source_files = 'LBXPermissions/LBXPermissionContacts.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    contact.source_files = 'LBXPermissions/LBXPermissionContacts.{h,m}'
 end
 
 s.subspec 'Location' do |location|
-    location.source_files = 'LBXPermissions/LBXPermissionLocation.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    location.source_files = 'LBXPermissions/LBXPermissionLocation.{h,m}'
 end
 
 s.subspec 'Reminder' do |reminder|
-    reminder.source_files = 'LBXPermissions/LBXPermissionReminders.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    reminder.source_files = 'LBXPermissions/LBXPermissionReminders.{h,m}'
 end
 
 s.subspec 'Calendar' do |calendar|
-    calendar.source_files = 'LBXPermissions/LBXPermissionCalendar.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    calendar.source_files = 'LBXPermissions/LBXPermissionCalendar.{h,m}'
 end
 
 s.subspec 'Microphone' do |microphone|
-    microphone.source_files = 'LBXPermissions/LBXPermissionMicrophone.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    microphone.source_files = 'LBXPermissions/LBXPermissionMicrophone.{h,m}'
 end
 
 s.subspec 'Health' do |health|
-    health.source_files = 'LBXPermissions/LBXPermissionHealth.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    health.source_files = 'LBXPermissions/LBXPermissionHealth.{h,m}'
 end
 
 s.subspec 'Net' do |net|
-    net.source_files = 'LBXPermissions/LBXPermissionNet.{h,m}','LBXPermissions/NetReachability.{h,m}','LBXPermissions/LBXPermissionData.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    net.source_files = 'LBXPermissions/LBXPermissionNet.{h,m}','LBXPermissions/NetReachability.{h,m}','LBXPermissions/LBXPermissionData.{h,m}'
 end
 
 end
