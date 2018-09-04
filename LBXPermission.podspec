@@ -8,7 +8,7 @@ s.authors      = {'lbxia' => 'lbxia20091227@foxmail.com'}
 s.platform     = :ios, '7.0'
 s.source       = {:git => 'https://github.com/MxABC/LBXPermission.git', :tag => s.version}
 s.requires_arc = true
-
+s.source_files = 'LBXPermissions/LBXPermissionSetting.{h,m}'
 s.default_subspec = 'All'
 
 s.subspec 'All' do |all|
