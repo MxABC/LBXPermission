@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LBXPermissionSetting.h"
 
 
 typedef NS_ENUM(NSInteger,LBXPermissionType)

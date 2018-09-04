@@ -64,7 +64,9 @@
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion
 {
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    if ([audioSession respondsToSelector:@selector(recordPermission)]) {
+
+    if (@available(iOS 8.0, *)) {
+
         AVAudioSessionRecordPermission permission = [audioSession recordPermission];
         switch (permission) {
             case AVAudioSessionRecordPermissionGranted: {
