@@ -16,7 +16,7 @@ s.subspec 'All' do |all|
 end
 
 s.subspec 'Camera' do |camera|
-    camera.source_files = 'LBXPermissions/LBXPermissionCamera.{h,m}','LBXPermissions/LBXPermissionSetting.{h,m}'
+    camera.source_files = 'LBXPermissions/LBXPermissionCamera.{h,m}'
 end
 
 s.subspec 'Photo' do |photo|
