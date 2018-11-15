@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
+
+API_AVAILABLE(ios(8.0)) 
 @interface LBXPermissionSetting : NSObject
 
 #pragma mark- guide user to show App privacy setting
