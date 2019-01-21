@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *calendarSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *healthSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *audioSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *mediaLibrarySwitch;
 
 //健康提示
 @property (weak, nonatomic) IBOutlet UILabel *labelHealthTip;
@@ -153,6 +154,14 @@
             _switch.on = granted;
             [self handCompletionWithGranted:granted firstTime:firstTime];
         }];
+    } else if (sender == _mediaLibrarySwitch)
+    {
+        [LBXPermission authorizeWithType:LBXPermissionType_MediaLibrary completion:^(BOOL granted, BOOL firstTime) {
+           
+            _switch.on = granted;
+            [self handCompletionWithGranted:granted firstTime:firstTime];
+        }];
+        
     }
 }
 
@@ -222,6 +231,7 @@
     [_calendarSwitch addTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
     [_healthSwitch addTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
     [_audioSwitch addTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
+    [_mediaLibrarySwitch addTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)clearAllTargets
@@ -236,19 +246,21 @@
     [_calendarSwitch removeTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
     [_healthSwitch removeTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
     [_audioSwitch removeTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
+    [_mediaLibrarySwitch removeTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
 }
 
 
 - (void)refreshStatus
 {
-    _photoSwitch.on     = [LBXPermission authorizedWithType:LBXPermissionType_Photos];
-    _cameraSwitch.on    = [LBXPermission authorizedWithType:LBXPermissionType_Camera];
-    _locationSwitch.on  = [LBXPermission authorizedWithType:LBXPermissionType_Location];
-    _contactSwitch.on   = [LBXPermission authorizedWithType:LBXPermissionType_Contacts];
-    _reminderSwitch.on  = [LBXPermission authorizedWithType:LBXPermissionType_Reminders];
-    _calendarSwitch.on  = [LBXPermission authorizedWithType:LBXPermissionType_Calendar];
-    _healthSwitch.on    = [LBXPermission authorizedWithType:LBXPermissionType_Health];
-    _audioSwitch.on     = [LBXPermission authorizedWithType:LBXPermissionType_Microphone];
+    _photoSwitch.on         = [LBXPermission authorizedWithType:LBXPermissionType_Photos];
+    _cameraSwitch.on        = [LBXPermission authorizedWithType:LBXPermissionType_Camera];
+    _locationSwitch.on      = [LBXPermission authorizedWithType:LBXPermissionType_Location];
+    _contactSwitch.on       = [LBXPermission authorizedWithType:LBXPermissionType_Contacts];
+    _reminderSwitch.on      = [LBXPermission authorizedWithType:LBXPermissionType_Reminders];
+    _calendarSwitch.on      = [LBXPermission authorizedWithType:LBXPermissionType_Calendar];
+    _healthSwitch.on        = [LBXPermission authorizedWithType:LBXPermissionType_Health];
+    _audioSwitch.on         = [LBXPermission authorizedWithType:LBXPermissionType_Microphone];
+    _mediaLibrarySwitch.on  = [LBXPermission authorizedWithType:LBXPermissionType_MediaLibrary];
     
     _labelLocationService.text = [LBXPermission isServicesEnabledWithType:LBXPermissionType_Location]? @"系统服务开启":@"系统服务未开启";
     
@@ -260,6 +272,7 @@
     _calendarSwitch.enabled = !_calendarSwitch.on;
     _healthSwitch.enabled = !_healthSwitch.on;
     _audioSwitch.enabled = !_audioSwitch.on;
+    _mediaLibrarySwitch.enabled = !_mediaLibrarySwitch.on;
 }
 
 #pragma mark- 网络权限设置

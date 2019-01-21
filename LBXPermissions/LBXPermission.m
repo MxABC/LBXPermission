@@ -72,6 +72,10 @@ typedef void(^completionPermissionHandler)(BOOL granted,BOOL firstTime);
             break;
         case LBXPermissionType_DataNetwork:
             break;
+        case LBXPermissionType_MediaLibrary:
+            strClass = @"LBXPermissionMediaLibrary";
+            break;
+            
         default:
             break;
     }
@@ -114,6 +118,9 @@ typedef void(^completionPermissionHandler)(BOOL granted,BOOL firstTime);
             break;
         case LBXPermissionType_DataNetwork:
             strClass = @"LBXPermissionData";
+            break;
+        case LBXPermissionType_MediaLibrary:
+            strClass = @"LBXPermissionMediaLibrary";
             break;
             
         default:
