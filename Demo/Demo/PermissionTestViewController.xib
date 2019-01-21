@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,6 +21,7 @@
                 <outlet property="labelNetPermission" destination="4BO-cN-6QV" id="lHx-Kk-Nf3"/>
                 <outlet property="labelNetStatus" destination="l7d-oH-4z8" id="Y76-y7-bLq"/>
                 <outlet property="locationSwitch" destination="b1B-Xs-Arl" id="zDo-wB-8wc"/>
+                <outlet property="mediaLibrarySwitch" destination="BhL-jp-AyU" id="eux-M4-Oqz"/>
                 <outlet property="photoSwitch" destination="EeT-4B-eU7" id="Anf-60-CsY"/>
                 <outlet property="reminderSwitch" destination="DzU-WM-OB6" id="uLa-to-VDT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -116,26 +117,36 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络状态:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7d-oH-4z8">
-                    <rect key="frame" x="20" y="416" width="66" height="18"/>
+                    <rect key="frame" x="20" y="465" width="66" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络权限：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4BO-cN-6QV">
-                    <rect key="frame" x="184" y="416" width="77" height="18"/>
+                    <rect key="frame" x="184" y="465" width="77" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mediaLibrary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Upu-SE-ReS">
+                    <rect key="frame" x="0.0" y="418" width="100" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BhL-jp-AyU">
+                    <rect key="frame" x="128" y="413" width="51" height="31"/>
+                </switch>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Upu-SE-ReS" firstAttribute="top" secondItem="RlD-KF-HqF" secondAttribute="bottom" constant="28" id="0pY-Tf-nbl"/>
                 <constraint firstItem="fpj-Xm-lBJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="324" id="4ep-rl-kWK"/>
                 <constraint firstItem="f8j-dJ-ue8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="6Qk-zW-ByY"/>
                 <constraint firstItem="giQ-sX-NBg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="41" id="9d8-MZ-Ul2"/>
                 <constraint firstItem="CPr-52-LTV" firstAttribute="top" secondItem="Xal-k8-A6F" secondAttribute="bottom" constant="17" id="A49-eD-hzV"/>
                 <constraint firstItem="w3i-Eo-g9C" firstAttribute="leading" secondItem="b1B-Xs-Arl" secondAttribute="trailing" constant="20" id="D8C-zo-kGG"/>
-                <constraint firstItem="l7d-oH-4z8" firstAttribute="top" secondItem="RlD-KF-HqF" secondAttribute="bottom" constant="26" id="DCF-cN-YNq"/>
+                <constraint firstItem="l7d-oH-4z8" firstAttribute="top" secondItem="Upu-SE-ReS" secondAttribute="bottom" constant="26" id="DCF-cN-YNq"/>
                 <constraint firstItem="E55-DG-zj1" firstAttribute="top" secondItem="f8j-dJ-ue8" secondAttribute="bottom" constant="24" id="EAh-hJ-1o1"/>
                 <constraint firstItem="4BO-cN-6QV" firstAttribute="centerY" secondItem="l7d-oH-4z8" secondAttribute="centerY" id="FHS-jo-V8m"/>
                 <constraint firstItem="PMC-ay-bnZ" firstAttribute="top" secondItem="EeT-4B-eU7" secondAttribute="bottom" constant="17" id="FLy-rU-0nt"/>
@@ -144,12 +155,15 @@
                 <constraint firstItem="iLw-r6-oAQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="23" id="Kgt-V7-QmV"/>
                 <constraint firstItem="Xal-k8-A6F" firstAttribute="top" secondItem="DzU-WM-OB6" secondAttribute="bottom" constant="19" id="L53-QL-UO0"/>
                 <constraint firstItem="uOC-qr-t0T" firstAttribute="top" secondItem="E55-DG-zj1" secondAttribute="bottom" constant="26" id="Pcd-HH-gok"/>
+                <constraint firstItem="BhL-jp-AyU" firstAttribute="centerY" secondItem="Upu-SE-ReS" secondAttribute="centerY" id="Q6X-I6-WXg"/>
                 <constraint firstItem="RlD-KF-HqF" firstAttribute="top" secondItem="giQ-sX-NBg" secondAttribute="bottom" constant="26" id="T0O-jZ-JWV"/>
+                <constraint firstItem="BhL-jp-AyU" firstAttribute="leading" secondItem="Upu-SE-ReS" secondAttribute="trailing" constant="28" id="UyN-Nq-Rj3"/>
                 <constraint firstItem="Xal-k8-A6F" firstAttribute="leading" secondItem="iLw-r6-oAQ" secondAttribute="trailing" constant="36" id="Vrn-7r-xmR"/>
                 <constraint firstItem="fpj-Xm-lBJ" firstAttribute="leading" secondItem="CPr-52-LTV" secondAttribute="trailing" constant="10" id="Z5w-2C-JO9"/>
                 <constraint firstItem="l7d-oH-4z8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aPN-HD-RzL"/>
                 <constraint firstItem="b1B-Xs-Arl" firstAttribute="leading" secondItem="E55-DG-zj1" secondAttribute="trailing" constant="37" id="aRp-1Q-Iky"/>
                 <constraint firstItem="AiV-j1-OUY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="44" id="aSY-qy-dUq"/>
+                <constraint firstItem="Upu-SE-ReS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="avW-I2-oyH"/>
                 <constraint firstItem="CPr-52-LTV" firstAttribute="leading" secondItem="giQ-sX-NBg" secondAttribute="trailing" constant="36" id="awU-8K-7Wy"/>
                 <constraint firstItem="b1B-Xs-Arl" firstAttribute="top" secondItem="PMC-ay-bnZ" secondAttribute="bottom" constant="15" id="bu4-ml-oDG"/>
                 <constraint firstItem="PMC-ay-bnZ" firstAttribute="leading" secondItem="f8j-dJ-ue8" secondAttribute="trailing" constant="35" id="eLP-dE-cM3"/>

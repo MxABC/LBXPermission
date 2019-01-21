@@ -22,6 +22,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>请允许访问媒体库</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>请允许访问日历</string>
 	<key>NSCameraUsageDescription</key>

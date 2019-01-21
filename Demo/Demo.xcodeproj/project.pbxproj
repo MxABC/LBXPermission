@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		261BA9CE21F56617009A0493 /* LBXPermissionMediaLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = 261BA9CC21F56616009A0493 /* LBXPermissionMediaLibrary.m */; };
 		73510E9F210FF4250034470E /* NetReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 73510E9E210FF4250034470E /* NetReachability.m */; };
 		73510EA221103DEC0034470E /* LBXPermissionNet.m in Sources */ = {isa = PBXBuildFile; fileRef = 73510EA121103DEC0034470E /* LBXPermissionNet.m */; };
 		73B8086E20A2E1F100D9C96A /* LBXPermission.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 73B8086D20A2E1F100D9C96A /* LBXPermission.podspec */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		261BA9CC21F56616009A0493 /* LBXPermissionMediaLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionMediaLibrary.m; sourceTree = "<group>"; };
+		261BA9CD21F56617009A0493 /* LBXPermissionMediaLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionMediaLibrary.h; sourceTree = "<group>"; };
 		73510E9D210FF4250034470E /* NetReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetReachability.h; sourceTree = "<group>"; };
 		73510E9E210FF4250034470E /* NetReachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetReachability.m; sourceTree = "<group>"; };
 		73510EA021103DEC0034470E /* LBXPermissionNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionNet.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				73510EA121103DEC0034470E /* LBXPermissionNet.m */,
 				77DAED3F1FD9646F002B093D /* LBXPermissionData.h */,
 				77DAED401FD9646F002B093D /* LBXPermissionData.m */,
+				261BA9CD21F56617009A0493 /* LBXPermissionMediaLibrary.h */,
+				261BA9CC21F56616009A0493 /* LBXPermissionMediaLibrary.m */,
 			);
 			name = LBXPermissions;
 			path = ../LBXPermissions;
@@ -227,6 +232,7 @@
 				73510E9F210FF4250034470E /* NetReachability.m in Sources */,
 				7721FE861FAC60E2003F7C9F /* main.m in Sources */,
 				7721FEA31FAC60FA003F7C9F /* LBXPermissionPhotos.m in Sources */,
+				261BA9CE21F56617009A0493 /* LBXPermissionMediaLibrary.m in Sources */,
 				77E0988E1FDA16F300559AC5 /* LBXPermissionSetting.m in Sources */,
 				7721FEA51FAC60FA003F7C9F /* LBXPermissionContacts.m in Sources */,
 				73510EA221103DEC0034470E /* LBXPermissionNet.m in Sources */,
@@ -363,11 +369,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8LQ7CL73D8;
+				DEVELOPMENT_TEAM = 27L5S4UTFM;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lbx.hk2018;
+				PRODUCT_BUNDLE_IDENTIFIER = windorz.CommonProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -381,11 +387,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8LQ7CL73D8;
+				DEVELOPMENT_TEAM = 27L5S4UTFM;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lbx.hk2018;
+				PRODUCT_BUNDLE_IDENTIFIER = windorz.CommonProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
