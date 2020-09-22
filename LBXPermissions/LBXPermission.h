@@ -21,7 +21,8 @@ typedef NS_ENUM(NSInteger,LBXPermissionType)
     LBXPermissionType_Microphone,
     LBXPermissionType_Health,
     LBXPermissionType_DataNetwork,
-    LBXPermissionType_MediaLibrary
+    LBXPermissionType_MediaLibrary,
+    LBXPermissionType_Tracking
 };
 
 @interface LBXPermission : NSObject

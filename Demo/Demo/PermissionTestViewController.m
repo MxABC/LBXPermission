@@ -10,6 +10,7 @@
 #import "LBXPermission.h"
 #import "LBXPermissionSetting.h"
 #import "LBXPermissionNet.h"
+#import "LBXPermissionTracking.h"
 
 @interface PermissionTestViewController ()
 @property (weak, nonatomic) IBOutlet UISwitch *photoSwitch;
@@ -21,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UISwitch *healthSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *audioSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *mediaLibrarySwitch;
+//广告
+@property (weak, nonatomic) IBOutlet UISwitch *idfaSwitch;
 
 //健康提示
 @property (weak, nonatomic) IBOutlet UILabel *labelHealthTip;
@@ -163,6 +166,15 @@
         }];
         
     }
+    else if (sender == _idfaSwitch)
+    {
+        [LBXPermissionTracking authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
+            
+            _switch.on = granted;
+            
+            [self handCompletionWithGranted:granted firstTime:firstTime];
+        }];
+    }
 }
 
 - (void)handCompletionWithGranted:(BOOL)granted firstTime:(BOOL)firstTime
@@ -179,9 +191,7 @@
         
         [self addAllTargets];
         
-    });
-    
-    
+    });    
     
 }
 
@@ -232,6 +242,10 @@
     [_healthSwitch addTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
     [_audioSwitch addTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
     [_mediaLibrarySwitch addTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
+    
+    [_idfaSwitch addTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
+
+ 
 }
 
 - (void)clearAllTargets
@@ -247,6 +261,9 @@
     [_healthSwitch removeTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
     [_audioSwitch removeTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
     [_mediaLibrarySwitch removeTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
+    
+    [_idfaSwitch removeTarget:self action:@selector(swithValueChange:) forControlEvents:UIControlEventValueChanged];
+
 }
 
 
@@ -261,6 +278,7 @@
     _healthSwitch.on        = [LBXPermission authorizedWithType:LBXPermissionType_Health];
     _audioSwitch.on         = [LBXPermission authorizedWithType:LBXPermissionType_Microphone];
     _mediaLibrarySwitch.on  = [LBXPermission authorizedWithType:LBXPermissionType_MediaLibrary];
+    _idfaSwitch.on = [LBXPermissionTracking authorized];
     
     _labelLocationService.text = [LBXPermission isServicesEnabledWithType:LBXPermissionType_Location]? @"系统服务开启":@"系统服务未开启";
     
@@ -273,6 +291,9 @@
     _healthSwitch.enabled = !_healthSwitch.on;
     _audioSwitch.enabled = !_audioSwitch.on;
     _mediaLibrarySwitch.enabled = !_mediaLibrarySwitch.on;
+    
+    _idfaSwitch.enabled = !_idfaSwitch.on;
+
 }
 
 #pragma mark- 网络权限设置

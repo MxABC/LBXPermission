@@ -28,6 +28,7 @@
 		7721FEAC1FAC6199003F7C9F /* PermissionTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */; };
 		77DAED411FD9646F002B093D /* LBXPermissionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DAED401FD9646F002B093D /* LBXPermissionData.m */; };
 		77E0988E1FDA16F300559AC5 /* LBXPermissionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */; };
+		8D08E5932519968A00626F9D /* LBXPermissionTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08E5922519968A00626F9D /* LBXPermissionTracking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		77DAED401FD9646F002B093D /* LBXPermissionData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionData.m; sourceTree = "<group>"; };
 		77E0988C1FDA16F300559AC5 /* LBXPermissionSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionSetting.h; sourceTree = "<group>"; };
 		77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionSetting.m; sourceTree = "<group>"; };
+		8D08E5912519968A00626F9D /* LBXPermissionTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionTracking.h; sourceTree = "<group>"; };
+		8D08E5922519968A00626F9D /* LBXPermissionTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionTracking.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,7 @@
 				7721FE8C1FAC60FA003F7C9F /* LBXPermissions */,
 				7721FE751FAC60E1003F7C9F /* Demo */,
 				7721FE741FAC60E1003F7C9F /* Products */,
+				8D08E5B32519A7C700626F9D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +124,8 @@
 		7721FE8C1FAC60FA003F7C9F /* LBXPermissions */ = {
 			isa = PBXGroup;
 			children = (
+				8D08E5912519968A00626F9D /* LBXPermissionTracking.h */,
+				8D08E5922519968A00626F9D /* LBXPermissionTracking.m */,
 				7721FE901FAC60FA003F7C9F /* LBXPermission.h */,
 				7721FE9B1FAC60FA003F7C9F /* LBXPermission.m */,
 				77E0988C1FDA16F300559AC5 /* LBXPermissionSetting.h */,
@@ -151,6 +157,13 @@
 			);
 			name = LBXPermissions;
 			path = ../LBXPermissions;
+			sourceTree = "<group>";
+		};
+		8D08E5B32519A7C700626F9D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D08E5932519968A00626F9D /* LBXPermissionTracking.m in Sources */,
 				7721FEA71FAC60FA003F7C9F /* LBXPermission.m in Sources */,
 				7721FEA41FAC60FA003F7C9F /* LBXPermissionLocation.m in Sources */,
 				7721FEA11FAC60FA003F7C9F /* LBXPermissionReminders.m in Sources */,
@@ -369,11 +383,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27L5S4UTFM;
+				DEVELOPMENT_TEAM = 8LQ7CL73D8;
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = windorz.CommonProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lbx.hk2019235;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

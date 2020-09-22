@@ -40,6 +40,7 @@ iOS常用权限获取
 ```
 
 ### install by cocoapods
+没有使用到的权限，不要安装，否则Appstore审核不通过
 
 ```
    pod 'LBXPermission/Base'
@@ -53,6 +54,7 @@ iOS常用权限获取
    pod 'LBXPermission/Microphone'
    pod 'LBXPermission/Health'
    pod 'LBXPermission/Net'
+   pod 'LBXPermission/Tracking'
 ```
 
 ### install manually
