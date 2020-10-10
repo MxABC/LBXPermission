@@ -37,7 +37,18 @@
 + (NSInteger)authorizationStatus
 {
     if ( @available(iOS 8,*) ){
-        return [[AVAudioSession sharedInstance] recordPermission];
+        
+        
+        switch ([[AVAudioSession sharedInstance] recordPermission]) {
+            case AVAudioSessionRecordPermissionUndetermined:
+                return 0;
+                break;
+            case AVAudioSessionRecordPermissionDenied:
+                return 1;
+            default:
+                return 2;
+                break;
+        }
     }
     else if (@available(iOS 7,*))
     {

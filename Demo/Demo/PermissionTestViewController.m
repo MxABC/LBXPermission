@@ -69,6 +69,39 @@
   
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self netGetRequest];
+}
+
+- (void)netGetRequest
+{
+    
+    // 组合一个搜索字符串
+    NSString *urlStr = @"https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=15852509988";
+    // 字符串转化为URL
+    NSURL *url = [NSURL URLWithString:urlStr];
+    
+    
+    // url转化为一个请求
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    // 状态请求
+    NSURLResponse *response;
+    // 链接一个请求
+    NSData *resultData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    
+    if (resultData) {
+        
+        // 返回数据转为字符串
+        NSData *dataString = [[NSString alloc] initWithData:resultData encoding:NSUTF8StringEncoding];
+        NSLog(@"%@", dataString);
+    }
+        
+}
+
+
 - (void)swithValueChange:(id)sender
 {
     //取消所有switch的值变化监听

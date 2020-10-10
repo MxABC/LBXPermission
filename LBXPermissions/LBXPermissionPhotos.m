@@ -31,12 +31,31 @@
 {
 //    PHAuthorizationStatusLimited 状态下也会返回 PHAuthorizationStatusAuthorized
     
-    
-    PHAuthorizationStatus status =  [PHPhotoLibrary authorizationStatus];
-    
-    return status;
-    
-    
+    if (@available(iOS 14.0, *)) {
+        
+        return  [PHPhotoLibrary authorizationStatusForAccessLevel:PHAccessLevelReadWrite];
+    }
+    else
+    {
+        PHAuthorizationStatus status =  [PHPhotoLibrary authorizationStatus];
+        
+        return status;
+    }
+}
+
++ (NSInteger)authorizationStatus_AddOnly
+{
+    if (@available(iOS 14.0, *)) {
+        
+        
+        return  [PHPhotoLibrary authorizationStatusForAccessLevel:PHAccessLevelAddOnly];
+
+        
+    }else{
+        
+        return [self authorizationStatus];
+    }
+
 }
 
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion

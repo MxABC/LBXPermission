@@ -12,6 +12,7 @@
 @interface LBXPermissionLocation()<CLLocationManagerDelegate>
 @property(nonatomic,strong) CLLocationManager *locationManager;
 @property (nonatomic, copy) void (^permissionCompletion)(BOOL granted,BOOL firstTime);
+@property (nonatomic, assign) BOOL firstTime;
 @end
 
 @implementation LBXPermissionLocation
@@ -64,6 +65,7 @@
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion;
 {
     CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
+    [LBXPermissionLocation sharedManager].firstTime = NO;
     switch (authorizationStatus) {
         case kCLAuthorizationStatusAuthorizedAlways://kCLAuthorizationStatusAuthorized both equal 3
         case kCLAuthorizationStatusAuthorizedWhenInUse:
@@ -81,6 +83,8 @@
                 return;
             }
             
+            [LBXPermissionLocation sharedManager].firstTime = YES;
+
             [[LBXPermissionLocation sharedManager]startGps:completion];
         }
             break;
@@ -163,7 +167,7 @@
             
             [self stopGps];
             if (_permissionCompletion) {
-                _permissionCompletion(YES,YES);
+                _permissionCompletion(YES,self.firstTime);
             }
             self.permissionCompletion = nil;
         }
@@ -173,7 +177,7 @@
             
             [self stopGps];
             if (_permissionCompletion) {
-                _permissionCompletion(NO,YES);
+                _permissionCompletion(NO,self.firstTime);
             }
             self.permissionCompletion = nil;
             break;

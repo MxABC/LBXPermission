@@ -48,7 +48,7 @@
                 [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         if (status == ATTrackingManagerAuthorizationStatusAuthorized) {
-                            completion(YES,NO);
+                            completion(YES,YES);
 //                            NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
                         }
                         else {

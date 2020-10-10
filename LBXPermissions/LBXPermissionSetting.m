@@ -91,6 +91,28 @@
     }
 }
 
++ (void)showAlertWithTitle:(NSString*)title
+                       msg:(NSString*)message
+                        ok:(NSString*)ok
+                                        
+{
+    if (@available(iOS 8,*)) {
+        
+        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        
+     
+                
+        //ok
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:ok style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+           
+        }];
+        [alertController addAction:okAction];
+        
+        [[self currentTopViewController] presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
 + (UIViewController*)currentTopViewController
 {
     UIViewController *currentViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
