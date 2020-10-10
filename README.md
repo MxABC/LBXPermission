@@ -2,9 +2,7 @@
 ***
 iOS常用权限获取
 
-![image](https://gitee.com/lbxia/imageSource/raw/master/Permission.gif)
-
-
+![1112.gif](https://upload-images.jianshu.io/upload_images/4952852-d03da06805c9bcf7.gif?imageMogr2/auto-orient/strip)
 
 调用接口简单，易用,如下面相机和定位权限判断及获取
 
@@ -61,8 +59,4 @@ iOS常用权限获取
 drag folder "LBXPermissions" to your project
 
 
-### 备注
 
-### 其他
-iOS14  本地网络权限参考
-https://juejin.im/post/6873016860514713608

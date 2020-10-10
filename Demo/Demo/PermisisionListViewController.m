@@ -190,9 +190,13 @@
                         break;
                     case kCLAuthorizationStatusAuthorizedAlways:
                         strPermission = @"拥有一直使用位置权限";
+                        permissionEnabled = YES;
+
                         break;
                     case kCLAuthorizationStatusAuthorizedWhenInUse:
                         strPermission = @"拥有使用时获取位置权限";
+                        permissionEnabled = YES;
+
                         break;
                         
                     default:
