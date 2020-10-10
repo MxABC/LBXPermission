@@ -8,7 +8,6 @@
 
 #import "LBXPermissionPhotos.h"
 #import <Photos/Photos.h>
-#import <AssetsLibrary/AssetsLibrary.h>
 
 
 @implementation LBXPermissionPhotos
@@ -30,14 +29,14 @@
  */
 + (NSInteger)authorizationStatus
 {
-    if (@available(iOS 8,*))
-    {
-        return  [PHPhotoLibrary authorizationStatus];
-    }
-    else
-    {
-        return  [ALAssetsLibrary authorizationStatus];
-    }
+//    PHAuthorizationStatusLimited 状态下也会返回 PHAuthorizationStatusAuthorized
+    
+    
+    PHAuthorizationStatus status =  [PHPhotoLibrary authorizationStatus];
+    
+    return status;
+    
+    
 }
 
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion
@@ -45,7 +44,6 @@
     if (@available(iOS 8.0, *)) {
         
         PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
-        
         switch (status) {
             case PHAuthorizationStatusAuthorized:
             {
@@ -64,6 +62,7 @@
                 break;
             case PHAuthorizationStatusNotDetermined:
             {
+//              iOS14 PHAuthorizationStatusLimited 状态下也会返回 PHAuthorizationStatusAuthorized
                 [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
                     if (completion) {
                         dispatch_async(dispatch_get_main_queue(), ^{
@@ -82,53 +81,7 @@
                 break;
         }
         
-    }else{
-        
-        ALAuthorizationStatus status = [ALAssetsLibrary authorizationStatus];
-        switch (status) {
-            case ALAuthorizationStatusAuthorized:
-            {
-                if (completion) {
-                    completion(YES, NO);
-                }
-            }
-                break;
-            case ALAuthorizationStatusNotDetermined:
-            {
-                ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-                
-                [library enumerateGroupsWithTypes:ALAssetsGroupAll
-                                       usingBlock:^(ALAssetsGroup *assetGroup, BOOL *stop) {
-                                           if (*stop) {
-                                               if (completion) {
-                                                   dispatch_async(dispatch_get_main_queue(), ^{
-                                                       completion(YES, NO);
-                                                   });
-                                                   
-                                               }
-                                           } else {
-                                               *stop = YES;
-                                           }
-                                       }
-                                     failureBlock:^(NSError *error) {
-                                         if (completion) {
-                                             dispatch_async(dispatch_get_main_queue(), ^{
-                                                 completion(NO, YES);
-                                             });
-                                         }
-                                     }];
-            } break;
-            case ALAuthorizationStatusRestricted:
-            case ALAuthorizationStatusDenied:
-            {
-                if (completion) {
-                    completion(NO, NO);
-                }
-            }
-                break;
-        }
     }
-  
 }
 
 @end

@@ -62,4 +62,7 @@ drag folder "LBXPermissions" to your project
 
 
 ### 备注
-demo界面待修改
+
+### 其他
+iOS14  本地网络权限参考
+https://juejin.im/post/6873016860514713608

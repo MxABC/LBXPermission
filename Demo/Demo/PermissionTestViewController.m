@@ -11,8 +11,10 @@
 #import "LBXPermissionSetting.h"
 #import "LBXPermissionNet.h"
 #import "LBXPermissionTracking.h"
+#import <PhotosUI/PhotosUI.h>
 
-@interface PermissionTestViewController ()
+
+@interface PermissionTestViewController ()<PHPickerViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UISwitch *photoSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *cameraSwitch;
 @property (weak, nonatomic) IBOutlet UISwitch *locationSwitch;
@@ -37,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelNetPermission;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
 @end
 
@@ -70,9 +73,9 @@
 {
     //取消所有switch的值变化监听
     [self clearAllTargets];
-
-    
     UISwitch *_switch = sender;
+    
+    
     if (sender == _photoSwitch)
     {
         //相册
@@ -168,6 +171,9 @@
     }
     else if (sender == _idfaSwitch)
     {
+        //系统权限，设置->隐私->跟踪  ->允许App请求跟踪 设置允许
+        //系统权限开启正常，则对应App权限开启
+        
         [LBXPermissionTracking authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
             
             _switch.on = granted;
@@ -182,7 +188,7 @@
     //没有权限，且不是第一次获取权限
     if ( !granted && !firstTime )
     {
-        [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有 xxx 权限，是否前往设置" cancel:@"取消" setting:@"设置"];
+        [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"没有 xxx 权限，是否前往设置(App跟踪权限 需要检查系统权限是否开启 设置->隐私->跟踪)" cancel:@"取消" setting:@"设置"];
     }
     
     
@@ -344,6 +350,80 @@
         __strong __typeof(self) strongSelf = weakSelf;
         strongSelf.labelNetPermission.text = granted ? @"有网络权限" : @"可能没有网络权限";
     }];
+}
+
+#pragma mark- 相册
+- (IBAction)pickerSelect:(id)sender
+{
+    [LBXPermission authorizeWithType:LBXPermissionType_Photos completion:^(BOOL granted, BOOL firstTime) {
+        
+        if (granted) {
+            
+            if (@available(iOS 14.0, *)) {
+                
+                PHPickerConfiguration *configuration = [[PHPickerConfiguration alloc] init];
+                
+        //        PHPickerFilter *imagesFilter;
+        //        PHPickerFilter *videosFilter;
+        //       PHPickerFilter *livePhotosFilter;
+                
+                configuration.filter = [PHPickerFilter imagesFilter];
+                configuration.selectionLimit = 1; // 默认为1，为0时表示可多选。
+                
+                PHPickerViewController *picker = [[PHPickerViewController alloc] initWithConfiguration:configuration];
+                picker.delegate = self;
+                picker.view.backgroundColor = [UIColor whiteColor];//注意需要进行暗黑模式适配
+                [self presentViewController:picker animated:YES completion:^{
+                    
+                }];
+            }else{
+                
+            }
+        }
+       
+    }];
+   
+}
+
+
+- (void)picker:(PHPickerViewController *)picker didFinishPicking:(NSArray<PHPickerResult *> *)results API_AVAILABLE(ios(14.0))
+{
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    if (!results || !results.count) {
+        return;
+    }
+    
+    //测试只是允许了部分图片权限，但是仍然可以选择所有照片...
+    
+    for (PHPickerResult *result in results) {
+        
+        NSItemProvider *itemProvider = result.itemProvider;
+        if ([itemProvider canLoadObjectOfClass:UIImage.class]) {
+            [itemProvider loadObjectOfClass:UIImage.class completionHandler:^(__kindof id<NSItemProviderReading>  _Nullable object, NSError * _Nullable error) {
+                
+                if (!error) {
+                    NSLog(@"返回成功");
+                }
+                else
+                {                    
+//                   NSLog(@"如果相册权限是部分允许，那边你选择了其他照片，则会报错");
+                    NSLog(@"%@",error);
+                    
+                }
+                
+                if ([object isKindOfClass:UIImage.class]) {
+                    NSLog(@"image");
+                    
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            self.imgView.image = (UIImage*)object;
+                        });
+                    
+                }
+            }];
+        }
+    }
 }
 
 

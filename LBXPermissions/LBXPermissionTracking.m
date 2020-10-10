@@ -47,11 +47,9 @@
                 // 未提示用户
                 [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        // 获取到权限后，依然使用老方法获取idfa
                         if (status == ATTrackingManagerAuthorizationStatusAuthorized) {
                             completion(YES,NO);
 //                            NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-//                            NSLog(@"idfa %@",idfa);
                         }
                         else {
                             completion(NO,YES);
@@ -70,10 +68,6 @@
             case ATTrackingManagerAuthorizationStatusAuthorized:
             {
                 completion(YES,NO);
-                
-//                NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-//                NSLog(@"idfa %@",idfa);
-                
             }
                 
             default:

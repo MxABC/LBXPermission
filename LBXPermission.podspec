@@ -5,7 +5,7 @@ s.summary      = 'iOS permissions'
 s.homepage     = 'https://github.com/MxABC/LBXPermission'
 s.license      = 'MIT'
 s.authors      = {'lbxia' => 'lbxia20091227@foxmail.com'}
-s.platform     = :ios, '7.0'
+s.platform     = :ios, '8.0'
 s.source       = {:git => 'https://github.com/MxABC/LBXPermission.git', :tag => s.version}
 s.requires_arc = true
 s.default_subspec = 'All'

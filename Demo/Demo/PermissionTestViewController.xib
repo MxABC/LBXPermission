@@ -15,6 +15,7 @@
                 <outlet property="contactSwitch" destination="YhE-Ki-GSZ" id="xNZ-9n-dW6"/>
                 <outlet property="healthSwitch" destination="CPr-52-LTV" id="j2f-jw-vGe"/>
                 <outlet property="idfaSwitch" destination="wmo-vn-Pbl" id="DnC-uO-FxJ"/>
+                <outlet property="imgView" destination="QBS-BV-X93" id="myw-bv-Odr"/>
                 <outlet property="labelHealthTip" destination="fpj-Xm-lBJ" id="EmZ-BP-5Ip"/>
                 <outlet property="labelLocationService" destination="w3i-Eo-g9C" id="vm9-xw-CLd"/>
                 <outlet property="labelNetPermission" destination="4BO-cN-6QV" id="lHx-Kk-Nf3"/>
@@ -145,6 +146,20 @@
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wmo-vn-Pbl">
                     <rect key="frame" x="129" y="507" width="51" height="31"/>
                 </switch>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KJS-Pk-qVL">
+                    <rect key="frame" x="208" y="25.5" width="62" height="30"/>
+                    <state key="normal" title="图片选择"/>
+                    <connections>
+                        <action selector="pickerSelect:" destination="-1" eventType="touchUpInside" id="k5h-HD-dMU"/>
+                    </connections>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QBS-BV-X93">
+                    <rect key="frame" x="303" y="30.5" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="aZJ-D1-Jjn"/>
+                        <constraint firstAttribute="width" constant="20" id="xXL-xE-PUL"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -152,6 +167,7 @@
                 <constraint firstItem="fpj-Xm-lBJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="324" id="4ep-rl-kWK"/>
                 <constraint firstItem="wmo-vn-Pbl" firstAttribute="leading" secondItem="wDS-qS-OhT" secondAttribute="trailing" constant="38" id="5oX-5O-IGJ"/>
                 <constraint firstItem="f8j-dJ-ue8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="6Qk-zW-ByY"/>
+                <constraint firstItem="KJS-Pk-qVL" firstAttribute="leading" secondItem="EeT-4B-eU7" secondAttribute="trailing" constant="34" id="97y-TJ-Ors"/>
                 <constraint firstItem="giQ-sX-NBg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="41" id="9d8-MZ-Ul2"/>
                 <constraint firstItem="CPr-52-LTV" firstAttribute="top" secondItem="Xal-k8-A6F" secondAttribute="bottom" constant="17" id="A49-eD-hzV"/>
                 <constraint firstItem="w3i-Eo-g9C" firstAttribute="leading" secondItem="b1B-Xs-Arl" secondAttribute="trailing" constant="20" id="D8C-zo-kGG"/>
@@ -179,7 +195,10 @@
                 <constraint firstItem="PMC-ay-bnZ" firstAttribute="leading" secondItem="f8j-dJ-ue8" secondAttribute="trailing" constant="35" id="eLP-dE-cM3"/>
                 <constraint firstItem="uOC-qr-t0T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="fcu-tx-jHa"/>
                 <constraint firstItem="tt9-rx-VdV" firstAttribute="leading" secondItem="RlD-KF-HqF" secondAttribute="trailing" constant="37" id="gSM-jr-Leu"/>
+                <constraint firstItem="QBS-BV-X93" firstAttribute="centerY" secondItem="KJS-Pk-qVL" secondAttribute="centerY" id="hI4-ei-v6Q"/>
+                <constraint firstItem="QBS-BV-X93" firstAttribute="leading" secondItem="KJS-Pk-qVL" secondAttribute="trailing" constant="33" id="k7g-EU-yhc"/>
                 <constraint firstItem="4BO-cN-6QV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="184" id="kSb-gV-9HR"/>
+                <constraint firstItem="KJS-Pk-qVL" firstAttribute="centerY" secondItem="EeT-4B-eU7" secondAttribute="centerY" id="mHt-dt-Van"/>
                 <constraint firstItem="lzE-Ev-Lsi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="mgH-DX-SDJ"/>
                 <constraint firstItem="iLw-r6-oAQ" firstAttribute="top" secondItem="lzE-Ev-Lsi" secondAttribute="bottom" constant="30" id="nvx-MJ-Vc4"/>
                 <constraint firstItem="wmo-vn-Pbl" firstAttribute="top" secondItem="BhL-jp-AyU" secondAttribute="bottom" constant="63" id="qZ5-lj-5gi"/>
@@ -197,7 +216,7 @@
                 <constraint firstItem="RlD-KF-HqF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="1" id="zZn-dB-ehk"/>
                 <constraint firstItem="tt9-rx-VdV" firstAttribute="top" secondItem="CPr-52-LTV" secondAttribute="bottom" constant="16" id="zwS-Tw-gVt"/>
             </constraints>
-            <point key="canvasLocation" x="-1186" y="44"/>
+            <point key="canvasLocation" x="-1511.2" y="71.514242878560722"/>
         </view>
     </objects>
 </document>

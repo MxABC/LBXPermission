@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4AD1E863-CF84-4C6B-AB0E-2CB426AD1591"
+            uuid = "AB7C080D-7376-481F-8873-6FBC034F2A4E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../LBXPermissions/LBXPermissionHealth.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "+authorizeWithCompletion:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D89EE4D6-0DD3-45E5-AE3E-DF9A1974F5AA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../LBXPermissions/LBXPermissionTracking.m"
+            filePath = "../LBXPermissions/LBXPermissionLocation.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "+authorized"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "+authorizeWithCompletion:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

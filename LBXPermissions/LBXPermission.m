@@ -24,6 +24,7 @@ typedef void(^completionPermissionHandler)(BOOL granted,BOOL firstTime);
     {
         SEL sel = NSSelectorFromString(@"isServicesEnabled");
         BOOL ret  = ((BOOL *(*)(id,SEL))objc_msgSend)( NSClassFromString(@"LBXPermissionLocation"), sel);
+
         return ret;
     }
     return YES;

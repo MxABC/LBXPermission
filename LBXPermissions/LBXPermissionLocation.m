@@ -34,22 +34,30 @@
 
 + (BOOL)authorized
 {
-    CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
-    
     if (@available(iOS 8,*)) {
+        
+        CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
         
         return (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse);
     }
-    else if(@available(iOS 2,*))
+    else if (@available(iOS 14,*))
     {
-        return authorizationStatus == kCLAuthorizationStatusAuthorized;
+        CLAuthorizationStatus authorizationStatus = [[LBXPermissionLocation sharedManager].locationManager authorizationStatus];
+        
+        return (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse);
     }
    
-    return NO;
+    return YES;
 }
 
 + (CLAuthorizationStatus)authorizationStatus;
 {
+    if (@available(iOS 14,*))
+    {
+        CLAuthorizationStatus authorizationStatus = [[LBXPermissionLocation sharedManager].locationManager authorizationStatus];
+        return authorizationStatus;
+    }
+    
     return  [CLLocationManager authorizationStatus];
 }
 
@@ -85,6 +93,15 @@
     }
 }
 
+- (CLLocationManager*)locationManager
+{
+    if (!_locationManager) {
+        
+        _locationManager = [[CLLocationManager alloc] init];
+    }
+    return _locationManager;
+}
+
 - (void)startGps:(void(^)(BOOL granted,BOOL firstTime))completion
 {
     if ( self.locationManager != nil ) {
@@ -93,9 +110,9 @@
     
     self.permissionCompletion = completion;
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    _locationManager.delegate = self;
-    _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+//    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     
     if (@available(iOS 8,*)) {
         
