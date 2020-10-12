@@ -22,7 +22,8 @@ typedef NS_ENUM(NSInteger,LBXPermissionType)
     LBXPermissionType_Health,
     LBXPermissionType_DataNetwork,
     LBXPermissionType_MediaLibrary,
-    LBXPermissionType_Tracking
+    LBXPermissionType_Tracking,
+    LBXPermissionType_Notification
 };
 
 @interface LBXPermission : NSObject

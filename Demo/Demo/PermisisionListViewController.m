@@ -20,7 +20,9 @@
 #import "LBXPermissionReminders.h"
 #import "LBXPermissionCalendar.h"
 #import "LBXPermissionHealth.h"
+#import "LBXPermissionNotification.h"
 #import "LBXPermissionSetting.h"
+
 
 
 @interface PermisisionListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -38,6 +40,12 @@
     [super viewDidLoad];
     
     self.title = @"权限获取测试";
+    
+//    bool ret = [LBXPermissionNotification authorized];
+//
+//    [LBXPermissionNotification authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
+//
+//    }];
 
     // Do any additional setup after loading the view from its nib.
     _listView.delegate = self;
@@ -52,6 +60,7 @@
         @{@"name":@"位置",@"type":@(LBXPermissionType_Location),@"img":@"location"},
         @{@"name":@"麦克风",@"type":@(LBXPermissionType_Microphone),@"img":@"microphone"},
         @{@"name":@"网络",@"type":@(LBXPermissionType_DataNetwork),@"img":@"net"},
+        @{@"name":@"推送",@"type":@(LBXPermissionType_Notification),@"img":@"push"},
         @{@"name":@"广告跟踪",@"type":@(LBXPermissionType_Tracking),@"img":@"advertising"},
         @{@"name":@"媒体库",@"type":@(LBXPermissionType_MediaLibrary),@"img":@"media"},
         @{@"name":@"联系人",@"type":@(LBXPermissionType_Contacts),@"img":@"contact"},
@@ -66,21 +75,17 @@
     [_listView reloadData];
     
     
-    [self netGetRequest];
-    
+    //监听网络权限
     [self netPermissionlisten];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self.listView selector:@selector(reloadData) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+    
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+
 
 #pragma mark - Table view data source
 
@@ -91,7 +96,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //#warning Incomplete implementation, return the number of rows
-    return 11;
+    return self.listContent.count;
 }
 
 
@@ -381,6 +386,41 @@
             strPermission = [NSString stringWithFormat:@"%@-注意:健康权限需要证书增加配置",strPermission];
         }
             break;
+        case LBXPermissionType_Notification:
+        {
+            /**
+             access authorizationStatus
+             0: NotDetermined
+             1: denied
+             2: authorized
+             3: 不影响用户操作的通知
+             4: clips：临时允许
+             */
+            switch ( [LBXPermissionNotification authorizationStatus] ) {
+                case 0:
+                    strPermission = @"权限未确定";
+                    break;
+                case 1:
+                    strPermission = @"没有权限";
+                    break;
+                case 2:
+                    strPermission = @"权限已经获取";
+                    permissionEnabled = YES;
+                    break;
+                case 3:
+                    strPermission = @"权限已经获取:不影响用户操作的通知权限";
+                    permissionEnabled = YES;
+                    break;
+                case 4:
+                    strPermission = @"clips权限临时权限已获取";
+                    permissionEnabled = YES;
+
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
             
         default:
             break;
@@ -388,13 +428,11 @@
     
     cell.bottomLabel.text = strPermission;
     
-    
     if (permissionEnabled) {
         cell.rightImageView.hidden = NO;
     }
     else
         cell.enableLabel.hidden = NO;
-    
 
     return cell;
 }
@@ -408,7 +446,6 @@
     NSNumber *numType = content[@"type"];
     
     LBXPermissionType type = numType.integerValue;
-
     
     if (type == LBXPermissionType_Location) {
         
@@ -428,7 +465,6 @@
     
     
     [LBXPermission authorizeWithType:numType.integerValue completion:^(BOOL granted, BOOL firstTime) {
-       
             
         [self.listView reloadData];
         
@@ -461,35 +497,33 @@
    
 }
 
-#pragma mark- 网络权限
+#pragma mark- 网络请求
 - (void)netGetRequest
 {
     //1，创建请求地址
-        NSString *urlString = @"https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=15852509988";
-        //对字符进行处理
-        urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSString *urlString = @"https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=15852509988";
+    //对字符进行处理
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    //2.创建请求类
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    //3.创建会话（单例）
+    NSURLSession *sharedSession = [NSURLSession sharedSession];
+    
+    //4.根据会话创建任务
+    NSURLSessionDataTask *dataTask = [sharedSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-        NSURL *url = [NSURL URLWithString:urlString];
+        NSLog(@"%@",data);
         
-        //2.创建请求类
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        //3.创建会话（单例）
-        NSURLSession *sharedSession = [NSURLSession sharedSession];
-        
-       //4.根据会话创建任务
-        NSURLSessionDataTask *dataTask = [sharedSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-            
-            NSLog(@"%@",data);
-          
-        }];
-        
-        //5.启动任务
-        [dataTask resume];
-
-
-        
+    }];
+    
+    //5.启动任务
+    [dataTask resume];
 }
+
 - (void)netPermissionlisten
 {
     __weak __typeof(self) weakSelf = self;
@@ -537,14 +571,12 @@
         __strong __typeof(self) strongSelf = weakSelf;
         
         strongSelf.netAuthorized = granted;
-        strongSelf.strNetStatus = granted ? @"有网络权限" : @"可能没有网络权限";
+        strongSelf.strNetStatus = granted ? @"有网络权限" : @"可能没有网络权限或系统网络关闭了";
         
+        dispatch_async(dispatch_get_main_queue(), ^{
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [strongSelf.listView reloadData];
-            });
-     
+            [strongSelf.listView reloadData];
+        });
         
     }];
 }

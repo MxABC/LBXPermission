@@ -174,7 +174,7 @@
     {
         [self listenNetPermisson];
         
-        [self handPermission];
+//        [self handPermission];
     }
 }
 

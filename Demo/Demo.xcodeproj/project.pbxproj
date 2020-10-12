@@ -29,6 +29,7 @@
 		77DAED411FD9646F002B093D /* LBXPermissionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DAED401FD9646F002B093D /* LBXPermissionData.m */; };
 		77E0988E1FDA16F300559AC5 /* LBXPermissionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */; };
 		8D08E5932519968A00626F9D /* LBXPermissionTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08E5922519968A00626F9D /* LBXPermissionTracking.m */; };
+		8D776175253420410055D089 /* LBXPermissionNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D776174253420410055D089 /* LBXPermissionNotification.m */; };
 		8DFEA07A25315A6A00A7B3D9 /* PermisisionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFEA07825315A6A00A7B3D9 /* PermisisionListViewController.m */; };
 		8DFEA07B25315A6A00A7B3D9 /* PermisisionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DFEA07925315A6A00A7B3D9 /* PermisisionListViewController.xib */; };
 		8DFEA0812531606500A7B3D9 /* PermissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFEA07F2531606500A7B3D9 /* PermissionTableViewCell.m */; };
@@ -78,6 +79,8 @@
 		77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionSetting.m; sourceTree = "<group>"; };
 		8D08E5912519968A00626F9D /* LBXPermissionTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionTracking.h; sourceTree = "<group>"; };
 		8D08E5922519968A00626F9D /* LBXPermissionTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionTracking.m; sourceTree = "<group>"; };
+		8D776173253420410055D089 /* LBXPermissionNotification.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionNotification.h; sourceTree = "<group>"; };
+		8D776174253420410055D089 /* LBXPermissionNotification.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionNotification.m; sourceTree = "<group>"; };
 		8DFEA07725315A6A00A7B3D9 /* PermisisionListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PermisisionListViewController.h; sourceTree = "<group>"; };
 		8DFEA07825315A6A00A7B3D9 /* PermisisionListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PermisisionListViewController.m; sourceTree = "<group>"; };
 		8DFEA07925315A6A00A7B3D9 /* PermisisionListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermisisionListViewController.xib; sourceTree = "<group>"; };
@@ -175,6 +178,8 @@
 				77DAED401FD9646F002B093D /* LBXPermissionData.m */,
 				261BA9CD21F56617009A0493 /* LBXPermissionMediaLibrary.h */,
 				261BA9CC21F56616009A0493 /* LBXPermissionMediaLibrary.m */,
+				8D776173253420410055D089 /* LBXPermissionNotification.h */,
+				8D776174253420410055D089 /* LBXPermissionNotification.m */,
 			);
 			name = LBXPermissions;
 			path = ../LBXPermissions;
@@ -279,6 +284,7 @@
 				7721FE781FAC60E1003F7C9F /* AppDelegate.m in Sources */,
 				7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */,
 				77DAED411FD9646F002B093D /* LBXPermissionData.m in Sources */,
+				8D776175253420410055D089 /* LBXPermissionNotification.m in Sources */,
 				7721FE9F1FAC60FA003F7C9F /* LBXPermissionMicrophone.m in Sources */,
 				7721FEA01FAC60FA003F7C9F /* LBXPermissionCalendar.m in Sources */,
 				8DFEA07A25315A6A00A7B3D9 /* PermisisionListViewController.m in Sources */,

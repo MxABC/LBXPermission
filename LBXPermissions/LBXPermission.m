@@ -79,6 +79,9 @@ typedef void(^completionPermissionHandler)(BOOL granted,BOOL firstTime);
         case LBXPermissionType_Tracking:
             strClass = @"LBXPermissionTracking";
             break;
+        case LBXPermissionType_Notification:
+            strClass = @"LBXPermissionNotification";
+            break;
             
         default:
             break;
@@ -128,6 +131,9 @@ typedef void(^completionPermissionHandler)(BOOL granted,BOOL firstTime);
             break;
         case LBXPermissionType_Tracking:
             strClass = @"LBXPermissionTracking";
+            break;
+        case LBXPermissionType_Notification:
+            strClass = @"LBXPermissionNotification";
             break;
             
         default:

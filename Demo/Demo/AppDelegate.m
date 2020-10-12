@@ -28,12 +28,25 @@
 
     [self.window makeKeyAndVisible];
     
-//    [LBXPermissionData authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
-//        
-//        NSLog(@"data network granted:%d",granted);
-//    }];
-    
     return YES;
+}
+
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    
+}
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken
+{
+    NSMutableString *deviceTokenString = [NSMutableString string];
+    const char *bytes = deviceToken.bytes;
+    NSInteger iCount = deviceToken.length;
+    for (NSInteger i = 0; i < iCount; i++) {
+        [deviceTokenString appendFormat:@"%02x", bytes[i]&0x000000FF];
+    }
+    NSLog(@"deviceTokenString:%@",deviceTokenString);
 }
 
 
@@ -41,7 +54,6 @@
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
-
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
@@ -57,7 +69,6 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    [[NSNotificationCenter defaultCenter]postNotificationName:@"refresh" object:nil];
 }
 
 

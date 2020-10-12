@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'LBXPermission'
-s.version      = '1.0.7'
+s.version      = '1.0.8'
 s.summary      = 'iOS permissions'
 s.homepage     = 'https://github.com/MxABC/LBXPermission'
 s.license      = 'MIT'
@@ -56,6 +56,10 @@ end
 
 s.subspec 'Tracking' do |tracking|
     tracking.source_files = 'LBXPermissions/LBXPermissionTracking.{h,m}'
+end
+
+s.subspec 'Notification' do |notification|
+    notification.source_files = 'LBXPermissions/LBXPermissionNotification.{h,m}'
 end
 
 

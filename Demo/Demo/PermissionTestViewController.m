@@ -61,9 +61,9 @@
     }
     
     [self addAllTargets];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addAllTargets) name:@"refresh" object:nil];
-    
+        
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addAllTargets) name:UIApplicationDidBecomeActiveNotification object:nil];
+
     
     [self netPermissionlisten];
   
