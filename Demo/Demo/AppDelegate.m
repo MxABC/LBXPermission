@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "PermissionTestViewController.h"
 #import "PermisisionListViewController.h"
 #import "LBXPermissionData.h"
 

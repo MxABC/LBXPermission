@@ -9,15 +9,18 @@
 #import "LBXPermissionTracking.h"
 #import <AdSupport/AdSupport.h>
 
+
+
 @implementation LBXPermissionTracking
 
 + (BOOL)authorized
 {
     if (@available(iOS 14.0, *)) {
         
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
         ATTrackingManagerAuthorizationStatus status = [ATTrackingManager trackingAuthorizationStatus];
-
         return status == ATTrackingManagerAuthorizationStatusAuthorized;
+#endif
     }
     else{
         
@@ -28,17 +31,20 @@
     return NO;
 }
 
-
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
 + (ATTrackingManagerAuthorizationStatus)authorizationStatus
 {
     return [ATTrackingManager trackingAuthorizationStatus];
 }
+#endif
 
 + (void)authorizeWithCompletion:(void(^)(BOOL granted,BOOL firstTime))completion
 {
     
     if (@available(iOS 14.0, *)) {
         
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
+
         ATTrackingManagerAuthorizationStatus status = [ATTrackingManager trackingAuthorizationStatus];
         
         switch (status) {
@@ -72,7 +78,8 @@
                 
             default:
                 break;
-        }        
+        }
+#endif
     }
     else {
         //iOS 14以下请求idfa权限

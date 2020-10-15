@@ -9,6 +9,10 @@
 #import "LBXPermissionLocation.h"
 #import <UIKit/UIKit.h>
 
+#ifndef __IPHONE_14_0
+    #define __IPHONE_14_0    140000
+#endif
+
 @interface LBXPermissionLocation()<CLLocationManagerDelegate>
 @property(nonatomic,strong) CLLocationManager *locationManager;
 @property (nonatomic, copy) void (^permissionCompletion)(BOOL granted,BOOL firstTime);
@@ -43,9 +47,12 @@
     }
     else if (@available(iOS 14,*))
     {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
+
         CLAuthorizationStatus authorizationStatus = [[LBXPermissionLocation sharedManager].locationManager authorizationStatus];
         
         return (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse);
+#endif
     }
    
     return YES;
@@ -55,8 +62,11 @@
 {
     if (@available(iOS 14,*))
     {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
+
         CLAuthorizationStatus authorizationStatus = [[LBXPermissionLocation sharedManager].locationManager authorizationStatus];
         return authorizationStatus;
+#endif
     }
     
     return  [CLLocationManager authorizationStatus];

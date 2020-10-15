@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,8 +24,6 @@
 		7721FEA51FAC60FA003F7C9F /* LBXPermissionContacts.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FE991FAC60FA003F7C9F /* LBXPermissionContacts.m */; };
 		7721FEA61FAC60FA003F7C9F /* LBXPermissionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FE9A1FAC60FA003F7C9F /* LBXPermissionCamera.m */; };
 		7721FEA71FAC60FA003F7C9F /* LBXPermission.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FE9B1FAC60FA003F7C9F /* LBXPermission.m */; };
-		7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7721FEA91FAC6199003F7C9F /* PermissionTestViewController.m */; };
-		7721FEAC1FAC6199003F7C9F /* PermissionTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */; };
 		77DAED411FD9646F002B093D /* LBXPermissionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 77DAED401FD9646F002B093D /* LBXPermissionData.m */; };
 		77E0988E1FDA16F300559AC5 /* LBXPermissionSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 77E0988D1FDA16F300559AC5 /* LBXPermissionSetting.m */; };
 		8D08E5932519968A00626F9D /* LBXPermissionTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D08E5922519968A00626F9D /* LBXPermissionTracking.m */; };
@@ -34,7 +32,6 @@
 		8DFEA07B25315A6A00A7B3D9 /* PermisisionListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DFEA07925315A6A00A7B3D9 /* PermisisionListViewController.xib */; };
 		8DFEA0812531606500A7B3D9 /* PermissionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFEA07F2531606500A7B3D9 /* PermissionTableViewCell.m */; };
 		8DFEA0822531606500A7B3D9 /* PermissionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DFEA0802531606500A7B3D9 /* PermissionTableViewCell.xib */; };
-		8DFEA08A2531A29800A7B3D9 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DFEA0892531A29800A7B3D9 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,9 +67,6 @@
 		7721FE9C1FAC60FA003F7C9F /* LBXPermissionPhotos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionPhotos.h; sourceTree = "<group>"; };
 		7721FE9D1FAC60FA003F7C9F /* LBXPermissionHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionHealth.h; sourceTree = "<group>"; };
 		7721FE9E1FAC60FA003F7C9F /* LBXPermissionReminders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBXPermissionReminders.h; sourceTree = "<group>"; };
-		7721FEA81FAC6199003F7C9F /* PermissionTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PermissionTestViewController.h; sourceTree = "<group>"; };
-		7721FEA91FAC6199003F7C9F /* PermissionTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PermissionTestViewController.m; sourceTree = "<group>"; };
-		7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PermissionTestViewController.xib; sourceTree = "<group>"; };
 		77DAED3F1FD9646F002B093D /* LBXPermissionData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionData.h; sourceTree = "<group>"; };
 		77DAED401FD9646F002B093D /* LBXPermissionData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LBXPermissionData.m; sourceTree = "<group>"; };
 		77E0988C1FDA16F300559AC5 /* LBXPermissionSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBXPermissionSetting.h; sourceTree = "<group>"; };
@@ -96,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DFEA08A2531A29800A7B3D9 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,9 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				8DFEA0882531A29700A7B3D9 /* Demo.entitlements */,
-				7721FEA81FAC6199003F7C9F /* PermissionTestViewController.h */,
-				7721FEA91FAC6199003F7C9F /* PermissionTestViewController.m */,
-				7721FEAA1FAC6199003F7C9F /* PermissionTestViewController.xib */,
 				7721FE761FAC60E1003F7C9F /* AppDelegate.h */,
 				7721FE771FAC60E1003F7C9F /* AppDelegate.m */,
 				7721FE7F1FAC60E1003F7C9F /* Assets.xcassets */,
@@ -229,7 +219,7 @@
 				};
 			};
 			buildConfigurationList = 7721FE6E1FAC60E1003F7C9F /* Build configuration list for PBXProject "Demo" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -254,7 +244,6 @@
 				73B8086E20A2E1F100D9C96A /* LBXPermission.podspec in Resources */,
 				7721FE831FAC60E1003F7C9F /* LaunchScreen.storyboard in Resources */,
 				8DFEA07B25315A6A00A7B3D9 /* PermisisionListViewController.xib in Resources */,
-				7721FEAC1FAC6199003F7C9F /* PermissionTestViewController.xib in Resources */,
 				8DFEA0822531606500A7B3D9 /* PermissionTableViewCell.xib in Resources */,
 				7721FE801FAC60E1003F7C9F /* Assets.xcassets in Resources */,
 			);
@@ -282,7 +271,6 @@
 				73510EA221103DEC0034470E /* LBXPermissionNet.m in Sources */,
 				7721FEA61FAC60FA003F7C9F /* LBXPermissionCamera.m in Sources */,
 				7721FE781FAC60E1003F7C9F /* AppDelegate.m in Sources */,
-				7721FEAB1FAC6199003F7C9F /* PermissionTestViewController.m in Sources */,
 				77DAED411FD9646F002B093D /* LBXPermissionData.m in Sources */,
 				8D776175253420410055D089 /* LBXPermissionNotification.m in Sources */,
 				7721FE9F1FAC60FA003F7C9F /* LBXPermissionMicrophone.m in Sources */,
@@ -353,7 +341,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -402,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -423,12 +411,17 @@
 				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lbx.hk2019235;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
@@ -446,11 +439,16 @@
 				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = windorz.CommonProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};

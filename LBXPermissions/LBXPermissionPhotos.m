@@ -9,6 +9,10 @@
 #import "LBXPermissionPhotos.h"
 #import <Photos/Photos.h>
 
+#ifndef __IPHONE_14_0
+    #define __IPHONE_14_0    140000
+#endif
+
 
 @implementation LBXPermissionPhotos
 
@@ -33,28 +37,30 @@
     
     if (@available(iOS 14.0, *)) {
         
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
+
         return  [PHPhotoLibrary authorizationStatusForAccessLevel:PHAccessLevelReadWrite];
+#endif
     }
-    else
-    {
-        PHAuthorizationStatus status =  [PHPhotoLibrary authorizationStatus];
-        
-        return status;
-    }
+    
+    PHAuthorizationStatus status =  [PHPhotoLibrary authorizationStatus];
+    
+    return status;
+    
 }
 
 + (NSInteger)authorizationStatus_AddOnly
 {
     if (@available(iOS 14.0, *)) {
         
-        
-        return  [PHPhotoLibrary authorizationStatusForAccessLevel:PHAccessLevelAddOnly];
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
 
+        return  [PHPhotoLibrary authorizationStatusForAccessLevel:PHAccessLevelAddOnly];
+#endif
         
-    }else{
-        
-        return [self authorizationStatus];
     }
+        
+    return [self authorizationStatus];
 
 }
 
@@ -65,6 +71,9 @@
         PHAuthorizationStatus status = [PHPhotoLibrary authorizationStatus];
         switch (status) {
             case PHAuthorizationStatusAuthorized:
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
+            case PHAuthorizationStatusLimited:
+#endif
             {
                 if (completion) {
                     completion(YES,NO);
@@ -91,8 +100,11 @@
                 }];
             }
                 break;
+                
             default:
             {
+                
+                
                 if (completion) {
                     completion(NO,NO);
                 }

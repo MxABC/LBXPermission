@@ -247,6 +247,13 @@
             
             if (@available(iOS 14.0, *)) {
                 
+#ifndef __IPHONE_14_0
+#define __IPHONE_14_0    140000
+#endif
+                
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
+                
+                
                 switch ([LBXPermissionTracking authorizationStatus]) {
                     case ATTrackingManagerAuthorizationStatusNotDetermined:
                         strPermission = @"权限未确定";
@@ -262,6 +269,7 @@
                         permissionEnabled = YES;
                         break;
                 }
+#endif
                 
             }else{
                 
