@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = 'LBXPermission'
-s.version      = '1.0.8'
+s.version      = '1.0.9'
 s.summary      = 'iOS permissions'
 s.homepage     = 'https://github.com/MxABC/LBXPermission'
 s.license      = 'MIT'
