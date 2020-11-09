@@ -133,6 +133,7 @@
     switch (type) {
         case LBXPermissionType_Photos:
         {
+            
             switch ([LBXPermissionPhotos authorizationStatus]) {
                 case 0:
                     strPermission = @"权限未确定";
@@ -144,17 +145,40 @@
                     strPermission = @"没有权限";
                     break;
                 case 3:
-                    strPermission = @"权限已经获取";
+                    strPermission = @"读写权限都已经获取";
                     permissionEnabled = YES;
                     break;
                 case 4:
-                    strPermission = @"权限已经获取:部分图片权限";
+                    strPermission = @"读写权限已经获取:部分图片获取权限";
                     permissionEnabled = YES;
                     break;
                 default:
                     break;
             }
-    
+            if (!permissionEnabled) {
+                
+                switch ([LBXPermissionPhotos authorizationStatus_OnlyWrite]) {
+                    case 0:
+                        strPermission = @"权限未确定";
+                        break;
+                    case 1:
+                        strPermission = @"权限受到限制";
+                        break;
+                    case 2:
+                        strPermission = @"没有权限";
+                        break;
+                    case 3:
+                        strPermission = @"写入权限已经获取";
+                        permissionEnabled = YES;
+                        break;
+                    case 4:
+                        strPermission = @"权限已经获取:写入权限";
+                        permissionEnabled = YES;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
             break;
         case LBXPermissionType_Camera:
@@ -171,12 +195,13 @@
 
                     break;
                 case AVAuthorizationStatusAuthorized:
-                    strPermission = @"权限已经获取:部分图片权限";
+                    strPermission = @"权限已经获取";
                     permissionEnabled = YES;
                     break;
                 default:
                     break;
             }
+            
         }
             break;
         case LBXPermissionType_Location:
@@ -466,9 +491,50 @@
     }
     else if(type == LBXPermissionType_DataNetwork)
     {
-        [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"是否前往设置修改权限" cancel:@"取消" setting:@"设置"];
+       
         return;
         
+    }
+    
+    else if (type == LBXPermissionType_Photos)
+    {
+        
+        [self choosePhotoSheet:^(BOOL writePermission) {
+            
+            if (writePermission) {
+                
+                //获取写权限
+                [LBXPermissionPhotos authorizeOnlyWriteWithCompletion:^(BOOL granted, BOOL firstTime) {
+                    
+                    if (granted) {
+                        [self.listView reloadData];
+                    }
+                    else if (!firstTime)
+                    {
+                        [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"是否前往设置修改权限" cancel:@"取消" setting:@"设置"];
+                    }
+                    
+                }];
+            }
+            else
+            {
+                //获取读写权限
+                [LBXPermissionPhotos authorizeWithCompletion:^(BOOL granted, BOOL firstTime) {
+                    
+                    if (granted) {
+                        [self.listView reloadData];
+                    }
+                    else if (!firstTime)
+                    {
+                        [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"是否前往设置修改权限" cancel:@"取消" setting:@"设置"];
+                    }
+                }];
+                
+            }
+            
+        }];
+        
+        return;
     }
     
     
@@ -587,6 +653,65 @@
         });
         
     }];
+}
+
+
+#pragma mark- 选择
+
+- (void)choosePhotoSheet:(void(^)(BOOL writePermission))completion
+{
+    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"选择获取相册权限类型" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    //        UIAlertActionStyle style =  (0 == i)? UIAlertActionStyleCancel: UIAlertActionStyleDefault;
+    UIAlertActionStyle style =  UIAlertActionStyleCancel;
+    
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:style handler:^(UIAlertAction *action) {
+        
+    }];
+    [alertController addAction:cancelAction];
+    
+    
+    
+    style =  UIAlertActionStyleDefault;
+    // Create the actions.
+    UIAlertAction *writeAction = [UIAlertAction actionWithTitle:@"仅仅写权限" style:style handler:^(UIAlertAction *action) {
+        
+        completion(YES);
+    }];
+    [alertController addAction:writeAction];
+    
+    
+
+    UIAlertAction *writeReadAction = [UIAlertAction actionWithTitle:@"读写权限" style:style handler:^(UIAlertAction *action) {
+        completion(NO);
+
+    }];
+    [alertController addAction:writeReadAction];
+    
+    
+    UIAlertAction *writeAlbumAction = [UIAlertAction actionWithTitle:@"图片写入相册测试" style:style handler:^(UIAlertAction *action) {
+
+        [self writeAlbum];
+    }];
+    [alertController addAction:writeAlbumAction];
+    
+    
+    UIAlertAction *permission = [UIAlertAction actionWithTitle:@"前往设置权限" style:style handler:^(UIAlertAction *action) {
+
+        [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"是否前往设置修改权限" cancel:@"取消" setting:@"设置"];
+    }];
+    [alertController addAction:permission];
+    
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+
+}
+
+- (void)writeAlbum
+{
+    UIImage* image = [UIImage imageNamed:@"123"];
+    UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 }
 
 @end
