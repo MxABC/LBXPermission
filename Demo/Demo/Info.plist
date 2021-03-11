@@ -30,11 +30,11 @@
 	<string>请允许使用相机</string>
 	<key>NSContactsUsageDescription</key>
 	<string>请允许访问通讯录</string>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>请允许访问健康数据</string>
 	<key>NSHealthShareUsageDescription</key>
 	<string>请允许访问健康数据</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>请允许访问健康数据</string>
-	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
 	<string>请允许访问健康数据</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>请允许访问定位功能</string>

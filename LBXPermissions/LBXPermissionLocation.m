@@ -39,13 +39,7 @@
 
 + (BOOL)authorized
 {
-    if (@available(iOS 8,*)) {
-        
-        CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
-        
-        return (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse);
-    }
-    else if (@available(iOS 14,*))
+    if (@available(iOS 14,*))
     {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_14_0
 
@@ -54,6 +48,14 @@
         return (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse);
 #endif
     }
+    
+    if (@available(iOS 8,*)) {
+        
+        CLAuthorizationStatus authorizationStatus = [CLLocationManager authorizationStatus];
+        
+        return (authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse);
+    }
+
    
     return YES;
 }
