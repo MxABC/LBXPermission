@@ -62,6 +62,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>蓝牙一直权限</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>蓝牙权限</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

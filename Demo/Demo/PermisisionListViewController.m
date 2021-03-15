@@ -22,7 +22,7 @@
 #import "LBXPermissionHealth.h"
 #import "LBXPermissionNotification.h"
 #import "LBXPermissionSetting.h"
-
+#import "LBXPermissionBluetooth.h"
 
 
 @interface PermisisionListViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -32,6 +32,10 @@
 
 @property (nonatomic, copy) NSString *strNetStatus;
 @property (nonatomic, assign) BOOL netAuthorized;
+
+//bluetooth system open
+@property (nonatomic, assign) BOOL bluetoothSysOpen;
+
 @end
 
 @implementation PermisisionListViewController
@@ -53,6 +57,28 @@
     
     self.netAuthorized = NO;
     
+    if ([LBXPermissionBluetooth authorized]) {
+        
+        self.bluetoothSysOpen = YES;
+        
+        [LBXPermissionBluetooth authorizeMonitorWithState:^(BOOL granted, NSInteger state) {
+            
+            NSLog(@"monitor:%d,%ld",granted,(long)state);
+           
+            if (granted) {
+                
+//            state: 1: 控制中心/系统 开启  2:控制中心/系统 关闭
+             
+                self.bluetoothSysOpen = (state == 1);
+                NSLog(@"bluetoothSysOpen:%d",self.bluetoothSysOpen);
+                [self.listView reloadData];
+             
+            }
+
+        }];
+         
+    }
+    
     
     self.listContent = @[
         @{@"name":@"相册",@"type":@(LBXPermissionType_Photos),@"img":@"photo"},
@@ -66,7 +92,8 @@
         @{@"name":@"联系人",@"type":@(LBXPermissionType_Contacts),@"img":@"contact"},
         @{@"name":@"提醒事项",@"type":@(LBXPermissionType_Reminders),@"img":@"reminder"},
         @{@"name":@"日历",@"type":@(LBXPermissionType_Calendar),@"img":@"calendar"},
-        @{@"name":@"健康",@"type":@(LBXPermissionType_Health),@"img":@"health"}
+        @{@"name":@"健康",@"type":@(LBXPermissionType_Health),@"img":@"health"},
+        @{@"name":@"蓝牙",@"type":@(LBXPermissionType_Bluetooth),@"img":@"bluetooth"}
     ];
 
     
@@ -84,6 +111,28 @@
     
 }
 
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+//    [LBXPermissionBluetooth authorizeWithShowPowerAlertKey:NO completionState:^(BOOL granted, NSInteger state, BOOL firstTime) {
+//
+//        NSLog(@"blue:%d,%ld,%d",granted,(long)state,firstTime);
+//    }];
+//
+//    [LBXPermissionBluetooth authorizeMonitorWithState:^(BOOL granted, NSInteger state) {
+//
+//        NSLog(@"monitor:%d,%ld",granted,(long)state);
+//
+//    }];
+     
+     
+//     complex:^(BOOL granted,NSInteger state, BOOL firstTime) {
+//
+//        NSLog(@"blue:%d,%d",granted,firstTime);
+//    }];
+}
 
 
 
@@ -352,7 +401,6 @@
             break;
         case LBXPermissionType_Reminders:
         {
-            
             switch ([LBXPermissionReminders authorizationStatus]) {
                 case 0:
                     strPermission = @"权限未确定";
@@ -372,7 +420,6 @@
             break;
         case LBXPermissionType_Calendar:
         {
-            
             switch ([LBXPermissionCalendar authorizationStatus]) {
                 case 0:
                     strPermission = @"权限未确定";
@@ -392,7 +439,6 @@
             break;
         case LBXPermissionType_Health:
         {
-            
             if ([LBXPermissionHealth isHealthDataAvailable]) {
                 
                 switch ([LBXPermissionHealth authorizationStatus]) {
@@ -415,7 +461,6 @@
             {
                 strPermission = @"设备不支持";
             }
-            
             strPermission = [NSString stringWithFormat:@"%@-注意:健康权限需要证书增加配置",strPermission];
         }
             break;
@@ -454,7 +499,47 @@
             }
         }
             break;
+        case LBXPermissionType_Bluetooth:
+        {
+            /*
+             0:未确定
+             1:限制
+             2:拒绝
+             3:允许
+            */
+            switch ([LBXPermissionBluetooth authorizationStatus]) {
+                case 0:
+                {
+                    strPermission = @"权限未确定";
+
+                }
+                    break;
+                case 1:
+                {
+                    strPermission = @"权限限制";
+
+                }
+                    break;
+                case 2:
+                {
+                    strPermission = @"权限拒绝";
+
+                }
+                    break;
+                case 3:
+                {
+                    strPermission = @"权限已获取";
+                    permissionEnabled = YES;
+
+                }
+                    break;
+                default:
+                    break;
+            }
             
+            strPermission = [NSString stringWithFormat:@"%@,%@",strPermission,self.bluetoothSysOpen ? @"系统开启":@"系统未开启"];
+        }
+            break;
         default:
             break;
     }
@@ -491,11 +576,8 @@
     }
     else if(type == LBXPermissionType_DataNetwork)
     {
-       
         return;
-        
     }
-    
     else if (type == LBXPermissionType_Photos)
     {
         
@@ -513,7 +595,6 @@
                     {
                         [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"是否前往设置修改权限" cancel:@"取消" setting:@"设置"];
                     }
-                    
                 }];
             }
             else
@@ -529,7 +610,6 @@
                         [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"是否前往设置修改权限" cancel:@"取消" setting:@"设置"];
                     }
                 }];
-                
             }
             
         }];
@@ -556,7 +636,6 @@
                     msg = @"没有广告权限,需要检查系统权限是否开启 设置->隐私->广告->限制广告跟踪)";
                     [LBXPermissionSetting showAlertWithTitle:@"提示" msg:msg ok:@"知道了"];
                     return;
-
                 }
             }
             
@@ -566,7 +645,6 @@
         {
             [LBXPermissionSetting showAlertToDislayPrivacySettingWithTitle:@"提示" msg:@"是否前往设置修改权限" cancel:@"取消" setting:@"设置"];
         }
-        
     }];
    
 }
@@ -591,7 +669,6 @@
     NSURLSessionDataTask *dataTask = [sharedSession dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSLog(@"%@",data);
-        
     }];
     
     //5.启动任务

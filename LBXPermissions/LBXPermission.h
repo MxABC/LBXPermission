@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger,LBXPermissionType)
     LBXPermissionType_DataNetwork,
     LBXPermissionType_MediaLibrary,
     LBXPermissionType_Tracking,
-    LBXPermissionType_Notification
+    LBXPermissionType_Notification,
+    LBXPermissionType_Bluetooth
 };
 
 @interface LBXPermission : NSObject

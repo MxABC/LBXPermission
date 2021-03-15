@@ -135,6 +135,9 @@ typedef void(^completionPermissionHandler)(BOOL granted,BOOL firstTime);
         case LBXPermissionType_Notification:
             strClass = @"LBXPermissionNotification";
             break;
+        case LBXPermissionType_Bluetooth:
+            strClass = @"LBXPermissionBluetooth";
+            break;
             
         default:
             break;
