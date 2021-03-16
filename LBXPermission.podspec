@@ -61,7 +61,9 @@ end
 s.subspec 'Notification' do |notification|
     notification.source_files = 'LBXPermissions/LBXPermissionNotification.{h,m}'
 end
-
+s.subspec 'Bluetooth' do |bluetooth|
+    bluetooth.source_files = 'LBXPermissions/LBXPermissionBluetooth.{h,m}'
+end
 
 end
 
