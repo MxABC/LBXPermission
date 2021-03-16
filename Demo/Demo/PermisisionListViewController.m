@@ -57,27 +57,17 @@
     
     self.netAuthorized = NO;
     
-    if ([LBXPermissionBluetooth authorized]) {
         
-        self.bluetoothSysOpen = YES;
-        
-        [LBXPermissionBluetooth authorizeMonitorWithState:^(BOOL granted, NSInteger state) {
-            
-            NSLog(@"monitor:%d,%ld",granted,(long)state);
-           
-            if (granted) {
-                
-//            state: 1: 控制中心/系统 开启  2:控制中心/系统 关闭
-             
-                self.bluetoothSysOpen = (state == 1);
-                NSLog(@"bluetoothSysOpen:%d",self.bluetoothSysOpen);
-                [self.listView reloadData];
-             
-            }
+    self.bluetoothSysOpen = YES;
+    //当前蓝牙权限及系统蓝牙开启状态监听
+    [LBXPermissionBluetooth authorizeMonitorWithState:^(BOOL granted, NSInteger state) {
 
-        }];
-         
-    }
+        NSLog(@"monitor:%d,%ld",granted,(long)state);
+        //            state: 1: 控制中心/系统 开启  2:控制中心/系统 关闭
+        self.bluetoothSysOpen = (state == 1);
+        NSLog(@"bluetoothSysOpen:%d",self.bluetoothSysOpen);
+        [self.listView reloadData];
+    }];
     
     
     self.listContent = @[
