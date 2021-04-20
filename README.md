@@ -46,16 +46,17 @@ iOS常用权限获取
    pod 'LBXPermission/Photo'
    pod 'LBXPermission/Contact'
    pod 'LBXPermission/Location'
-   pod 'LBXPermission/Location'
    pod 'LBXPermission/Reminder'
    pod 'LBXPermission/Calendar'
    pod 'LBXPermission/Microphone'
    pod 'LBXPermission/Health'
    pod 'LBXPermission/Net'
-   pod 'LBXPermission/Tracking'
+   pod 'LBXPermission/Tracking' 
+   pod 'LBXPermission/Notification'
+   pod 'LBXPermission/Bluetooth'
 ```
 
 ### install manually
-drag folder "LBXPermissions" to your project
+将 "LBXPermissions" 文件夹拖动你的工程，并删除非必要的权限文件
 
 
