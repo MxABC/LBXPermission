@@ -58,6 +58,10 @@ s.subspec 'Tracking' do |tracking|
     tracking.source_files = 'LBXPermissions/LBXPermissionTracking.{h,m}'
 end
 
+s.subspec 'Media' do |media|
+    media.source_files = 'LBXPermissions/LBXPermissionMediaLibrary.{h,m}'
+end
+
 s.subspec 'Notification' do |notification|
     notification.source_files = 'LBXPermissions/LBXPermissionNotification.{h,m}'
 end
